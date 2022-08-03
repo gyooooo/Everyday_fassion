@@ -5,11 +5,15 @@ Rails.application.routes.draw do
   　passwords: 'customer/passwords',
   }
 
-devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
-}
+  }
+  
+  devise_scope :customer do
+    post 'customer/guest_sign_in', to: 'customer/sessions#guest_sign_in'
+  end
 
-root to: 'customer/homes#top'
+ root to: 'customer/homes#top'
 
   namespace :customer do
     get "home/about"=>"homes#about", as: "about"
