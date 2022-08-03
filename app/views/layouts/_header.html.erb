@@ -14,7 +14,7 @@
   <% end %>
   <ul class="nav justify-content-end">
     <li class="nav-item btn"><%= link_to "マイページ", customer_customer_path(current_customer.id), class: 'nav-link text-dark' %></li>
-    <li class="nav-item btn"><%= link_to "商品一覧", customer_posts_path, class: 'nav-link text-dark' %></li>
+    <li class="nav-item btn"><%= link_to "投稿一覧", customer_posts_path, class: 'nav-link text-dark' %></li>
     <li class="nav-item btn"><%= link_to "ログアウト",  destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %></li>
   </ul>
 <% else %>
@@ -22,7 +22,7 @@
     <%#= image_tag "logo.jpg", size: "100x100" %>
   <% end %>
   <ul class="nav justify-content-end">
-    <li class="nav-item btn"><%= link_to 'ゲストログイン（閲覧用）', customer_guest_sign_in_path, method: :post %></li>
+    <li class="nav-item btn"><%= link_to 'ゲストログイン（閲覧用）', customer_guest_sign_in_path, method: :post,  class: 'nav-link text-dark' %></li>
     <li class="nav-item btn"><%= link_to "About", customer_about_path, class: 'nav-link text-dark' %></li>
     <li class="nav-item btn"><%= link_to "投稿一覧", customer_posts_path, class: 'nav-link text-dark' %></li>
     <li class="nav-item btn"><%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark' %></li>
