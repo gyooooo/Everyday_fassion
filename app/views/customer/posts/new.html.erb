@@ -1,2 +1,9 @@
-<h1>Customer::Posts#new</h1>
-<p>Find me in app/views/customer/posts/new.html.erb</p>
+<h3>新規投稿</h3>
+
+<%= form_with model: @post,url: '/customer/posts', method: :post do |f| %>
+ <h5>本文</h5>
+ <%= f.text_field :introduction %>
+ <h5>写真</h5>
+ <%= f.file_field :image, accept: "image/*" %>
+ <%= f.submit '投稿' %>
+<% end %>

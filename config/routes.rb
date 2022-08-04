@@ -20,9 +20,10 @@ Rails.application.routes.draw do
 
   namespace :customer do
     get "home/about"=>"homes#about", as: "about"
-    resources :posts, only: [:new, :index, :show, :edit]
-    resources :customers, only: [:new, :show, :edit, :update]
+    resources :posts, only: [:new, :create, :index, :show, :edit]
     get 'customers/unsubscribe' => 'customers#unsubscribe'
+    patch 'customers/withdraw' => 'customers#withdraw'
+    resources :customers, only: [:new, :show, :edit, :update]
     resources :commments, only: [:new, :edit]
     # resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end

@@ -1,4 +1,6 @@
 class Customer::CustomersController < ApplicationController
+  before_action :authenticate_customer!
+  
   def new
   end
 
@@ -22,8 +24,11 @@ class Customer::CustomersController < ApplicationController
     end
   end
   
-  def withdarw
-    @cutomer = current_customer
+  def unsubscribe
+  end
+  
+  def withdraw
+    @customer = current_customer
     @customer.update(is_deleted: true)
     reset_session
     redirect_to root_path

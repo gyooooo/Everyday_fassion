@@ -1,2 +1,12 @@
-<h1>Customer::Customers#unsubscribe</h1>
-<p>Find me in app/views/customer/customers/unsubscribe.html.erb</p>
+<h1>本当に退会しますか？</h1>
+<h3>退会すると、会員登録情報が
+閲覧できなくなります。
+退会する場合は、「退会する」をクリックしてください。</h3>
+
+<%= link_to edit_customer_customer_path(current_customer) do %>
+<button>退会しない</button>
+<% end %>
+
+<%= link_to customer_customers_withdraw_path(current_customer), method: :PATCH, data: {confirm: "本当に退会してもよろしいですか？"} do %>
+<button>退会する</button>
+<% end %>
