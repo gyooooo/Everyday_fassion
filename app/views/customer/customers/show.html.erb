@@ -1,2 +1,35 @@
-<h1>Customer::Customers#show</h1>
-<p>Find me in app/views/customer/customers/show.html.erb</p>
+<h3>マイページ</h3>
+ <table class="table table-bordered table-condensed">
+    <p>
+      <strong class="information-link">登録情報</strong>
+      <%= link_to edit_customer_customer_path(current_customer) do %>
+      <button type="button" class="btn btn-online-info">編集する</button><% end %>
+    </p>
+    
+    <tr>
+      <td>名前</td>
+      <td><%= @customer.first_name %><%= @customer.last_name %></td>
+    </tr>
+    
+    <tr>
+      <td>フリガナ</td>
+      <td><%= @customer.first_name_kana %><%= @customer.last_name_kana %></td>
+    </tr>
+    
+    <tr>
+      <td>メールアドレス</td>
+      <td><%= @customer.email %></td>
+    </tr>
+ </table>
+ 
+     <p>
+      <strong class="information-link">いいね一覧</strong>
+      <%= link_to customer_favorites_index_path(current_customer) do %>
+      <button type="button" class="btn btn-online-info">見る</button><% end %>
+    </p>
+    
+    <p>
+      <strong class="infomation-link">投稿一覧</strong>
+      <%= link_to customer_posts_path(current_customer) do %>
+      <button type="button" class="btn btn-online-info">見る</button><% end %>
+    </p>

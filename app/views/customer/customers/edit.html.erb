@@ -1,2 +1,28 @@
-<h1>Customer::Customers#edit</h1>
-<p>Find me in app/views/customer/customers/edit.html.erb</p>
+<h3>会員情報編集</h3>
+  <%= form_with model: @customer, url: customer_customer_path(@customer) do |f| %>
+   <table class="row table">
+    <tr>
+      <th><%= f.label :氏名 %></th>
+      <th><%= f.text_field :first_name, class:"form-control" %></th>
+       <th><%= f.text_field :last_name, class:"form-control" %></th>
+    </tr>
+     
+    <tr>
+      <th><%= f.label :フリガナ %></th>
+      <th><%= f.text_field :first_name_kana, class:"form-control" %></th>
+      <th><%= f.text_field :last_name_kana,class:"form-control" %></th>
+    </tr>
+    
+    <tr>
+      <th><%= f.label :メールアドレス %></th>
+      <th><%= f.text_field :email, class:"form-control" %></th>
+    </tr>
+    
+    <div class="form-group">
+      <th><input type="submit" name="commit" value="編集内容を保存" class="btn btn-outline-dark" data-disable-with="Update Customer"></th>
+      <th><%= link_to customer_customers_unsubscribe_path(current_customer) do %>
+          <button type="button" class="btn btn-outline-dark">退会する</button><% end %>
+      </th>
+    </div>
+   </table>
+  <% end %>

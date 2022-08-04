@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :customer do
+    get 'favorites/index'
+  end
   devise_for :customer, controllers: {
     registrations: "customer/registrations",
     sessions: 'customer/sessions',
@@ -18,10 +21,10 @@ Rails.application.routes.draw do
   namespace :customer do
     get "home/about"=>"homes#about", as: "about"
     resources :posts, only: [:new, :index, :show, :edit]
-    resources :customers, only: [:new, :show, :edit]
+    resources :customers, only: [:new, :show, :edit, :update]
     get 'customers/unsubscribe' => 'customers#unsubscribe'
     resources :commments, only: [:new, :edit]
-    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    # resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
   
   namespace :admin do
