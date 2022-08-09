@@ -25,7 +25,6 @@ Rails.application.routes.draw do
     patch 'customers/withdraw' => 'customers#withdraw'
     resources :customers, only: [:new, :show, :edit, :update]
     resources :commments, only: [:new, :edit]
-    # resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
   
   namespace :admin do
