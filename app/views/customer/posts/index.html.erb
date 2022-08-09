@@ -3,11 +3,18 @@
 <!--view/public/homes/_genre_indexを参考-->
 
 <h3>投稿一覧</h3>
-<%= @posts.each do |post| %>
+
+
+<% @posts.each do |post| %>
+ <%= link_to customer_post_path(post.id) do %>
   <%= post.introduction %>
    <% if post.image.attached? %>
     <%= image_tag post.image, size: "200x200" %>
    <% else %>
     <%= image_tag 'no_image.jpeg', size: "200x200" %>
    <% end %>
+   
+    
+    <%#= image_tag post.image, size: '340x260' if post.image.attached? %>
+  <% end %>
 <% end %>
