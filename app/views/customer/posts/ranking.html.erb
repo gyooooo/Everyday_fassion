@@ -1,0 +1,25 @@
+<div class="border"></div>
+<div class='post-card-contents'>
+  <h2 class='nickname'>ランキング</h2>
+   <% @all_ranks.each.with_index(1) do |post, i| %>
+      第<%= i %>位
+     <%#= render partial: "post", local:{ post: @post} %>
+     <ul class='post-lists'>
+      <% @posts.each do |post|%>
+        <li class='list'>
+         <div class="slider">
+          <% post.images.each do |image| %>
+          <div class='post-img-content'>
+           <%= link_to image_tag(image, class: 'sized'), post_path(post.id) %>
+          </div>
+          <% end %>
+         </div>
+         <div class="post-info">
+           <h3 class="nickname"><%= post.nickname %></h3>
+           <h3 class="introduction"><%= post.introduction %></h3>
+         </div>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

@@ -2,6 +2,11 @@
   <%= form_with model: @customer, url: customer_customer_path(@customer) do |f| %>
    <table class="row table">
     <tr>
+      <th><%= f.label :プロフィール写真 %></th>
+      <th><%= f.file_field :profile_image, class:"form-control image" %></th>
+    </tr>
+    
+    <tr>
       <th><%= f.label :氏名 %></th>
       <th><%= f.text_field :first_name, class:"form-control" %></th>
        <th><%= f.text_field :last_name, class:"form-control" %></th>
@@ -11,6 +16,11 @@
       <th><%= f.label :フリガナ %></th>
       <th><%= f.text_field :first_name_kana, class:"form-control" %></th>
       <th><%= f.text_field :last_name_kana,class:"form-control" %></th>
+    </tr>
+
+    <tr>
+      <th><%= f.label :ニックネーム %></th>
+      <th><%= f.text_field :nickname, class:"form-control" %></th>
     </tr>
     
     <tr>

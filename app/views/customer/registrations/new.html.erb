@@ -6,9 +6,7 @@
   <table class="row table">
     <tr>
       <tr>
-        <th>
-          <h5>名前</h5>
-        </th>
+        <th><h5>名前</h5></th>
         <th><%= f.label :"(姓)" %></th>
         <th><%= f.text_field :first_name, autofocus: true, autocomplete: "姓" %></th>
         <th><%= f.label :"(名)" %></th>
@@ -16,9 +14,7 @@
       </tr>
       
       <tr>
-        <th>
-          <h5>フリガナ</h5>
-        </th>
+        <th><h5>フリガナ</h5></th>
         <th><%= f.label :"(セイ)" %></th>
         <th><%= f.text_field :first_name_kana, autofocus: true, autocomplete: "セイ" %></th>
         <th><%= f.label :"(メイ)" %></th>
@@ -26,9 +22,13 @@
       </tr>
       
       <tr>
-        <th>
-          <h5>メールアドレス</h5>
-        </th>
+        <th><h5>ニックネーム</h5></th>
+        <th></th>
+        <th><%= f.text_field :nickname, autofocus: true, autocomplete: "ニックネーム" %></th>
+      </tr>
+      
+      <tr>
+        <th><h5>メールアドレス</h5></th>
         <th></th>
         <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
         <th></th>
@@ -36,9 +36,7 @@
       </tr>
       
       <tr>
-        <th>
-          <h5>パスワード(6文字以上)</h5>
-        </th>
+        <th><h5>パスワード(6文字以上)</h5></th>
         <th><% if @minimum_password_length %><% end %></th>
         <th><%= f.password_field :password, autocomplete: "new-password" %></th>
         <th></th>
@@ -46,9 +44,7 @@
       </tr>
       
       <tr>
-        <th>
-          <h5>パスワード(確認用)</h5>
-        </th>
+        <th><h5>パスワード(確認用)</h5></th>
         <th></th>
         <th><%= f.password_field :password_confirmation, autocomplete: "new-password" %></th>
         <th></th>

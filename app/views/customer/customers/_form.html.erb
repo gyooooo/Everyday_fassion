@@ -1,0 +1,29 @@
+<h3>マイページ</h3>
+ <table class="table table-bordered table-condensed">
+    <p>
+      <strong class="information-link">登録情報</strong>
+      <%= link_to edit_customer_customer_path(@customer) do %>
+      <button type="button" class="btn btn-online-info">編集する</button><% end %>
+    </p>
+    
+    <!--<tr>-->
+    <!--  <td><%#= @customer.image_tag customer.get_profile_image(100,100) %></td>-->
+    <!--</tr>-->
+    
+    <tr>
+      <td>ニックネーム</td>
+      <td><%= @customer.nickname %></td>
+    </tr>
+ </table>
+ 
+     <p>
+      <strong class="information-link">いいね一覧</strong>
+      <%= link_to favorite_customer_customer_path(@customer) do %>
+      <button type="button" class="btn btn-online-info">見る</button><% end %>
+    </p>
+    
+    <!--<p>-->
+    <!--  <strong class="infomation-link">投稿一覧</strong>-->
+    <!--  <%#= link_to customer_path(@customer) do %>-->
+    <!--  <button type="button" class="btn btn-online-info">見る</button><%# end %>-->
+    <!--</p>-->

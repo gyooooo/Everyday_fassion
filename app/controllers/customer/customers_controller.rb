@@ -5,11 +5,25 @@ class Customer::CustomersController < ApplicationController
   end
 
   def show
-    @customer = current_customer
+    @customer = Customer.find(params[:id])
+    @posts = @customer.posts
+    # @customers = current_customer
+    #     if (params[:customer_id]).present?
+    #   @post = Post.where(post_id: params[:customer_id])
+    #   #モデル.where(カラム名: params[:受け取る名前＊カラム名だとわかりやすい])
+    #   #whereメソッドは指定した条件に当てはまるデータを全て取得してくれる
+    # else
+    #   @posts = Post.all
+    # end
   end
 
   def edit
     @customer = current_customer
+    if @customer == current_customer
+      render "edit"
+    else
+      redirect_to customer_customer_path(current_customer.id)
+    end
   end
 
   def unsubscribe
@@ -24,7 +38,15 @@ class Customer::CustomersController < ApplicationController
     end
   end
   
-  def unsubscribe
+  def destroy
+    @customer = Customer.find(params[:id])
+    # if @post.destroy
+    #   flash[:notice] = "退会"
+    #   redirect_to post_path
+    # else
+    #   @post = Post.all
+    #   render :edit
+    # end
   end
   
   def withdraw
@@ -34,8 +56,20 @@ class Customer::CustomersController < ApplicationController
     redirect_to root_path
   end
   
+  def favorite
+    @customer = Customer.find(params[:id])
+    @favorite = Favorite.where(customer_id: @customer.id).pluck(:post_id)
+    @favorite_posts = Favorite.find(favorite)
+  end
+  
   private
     def customer_params
-        params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email)
+        params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :profile_image)
     end
+    
+  def correct_customer
+    @customer = Customer.find(params[:id])
+    @customer = @customer.new
+    redirect_to(customers_path) unless @customer == current_customer
+  end
 end
