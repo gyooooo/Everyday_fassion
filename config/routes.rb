@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   namespace :customer do
     get "home/about"=>"homes#about", as: "about"
+    get "ranking"=>"posts#ranking", as: "ranking"
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
      resource :favorites, only: [:create, :destroy]
      resources :comments, only: [:create, :destroy]

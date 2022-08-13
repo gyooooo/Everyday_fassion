@@ -8,6 +8,7 @@ class Post < ApplicationRecord
     
   has_one_attached :image
   belongs_to :customer
+  belongs_to :genre, optional: true
   
   # validates :title, presence: true
 

@@ -15,6 +15,7 @@ class Customer::CustomersController < ApplicationController
     # else
     #   @posts = Post.all
     # end
+    @post_image = @customer.profile_image
   end
 
   def edit
@@ -58,8 +59,7 @@ class Customer::CustomersController < ApplicationController
   
   def favorite
     @customer = Customer.find(params[:id])
-    @favorite = Favorite.where(customer_id: @customer.id).pluck(:post_id)
-    @favorite_posts = Favorite.find(favorite)
+    @favorite_posts = Post.where(id: @customer.favorites.pluck(:post_id))
   end
   
   private

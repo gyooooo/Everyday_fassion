@@ -5,21 +5,23 @@
       第<%= i %>位
      <%#= render partial: "post", local:{ post: @post} %>
      <ul class='post-lists'>
-      <% @posts.each do |post|%>
-        <li class='list'>
-         <div class="slider">
-          <% post.images.each do |image| %>
+      <!--<%# @posts.each do |post|%>-->
+      <!--  <li class='list'>-->
+      <!--   <div class="slider">-->
+          <% @posts.each do |post| %>
           <div class='post-img-content'>
-           <%= link_to image_tag(image, class: 'sized'), post_path(post.id) %>
-          </div>
+           <%#= link_to ("#{image_tag　post.image, class: 'sized'}"), customer_post_path(post.id) %>
+           <%= link_to customer_post_path(post.id) do %> 
+           <p class="sized"><%= post.image %></p>
           <% end %>
-         </div>
+          </div>
+         <!--</div>-->
          <div class="post-info">
-           <h3 class="nickname"><%= post.nickname %></h3>
+           <h3 class="nickname"><%= post.customer.nickname %></h3>
            <h3 class="introduction"><%= post.introduction %></h3>
          </div>
-        </li>
+      <!--  </li>-->
       <% end %>
-    </ul>
+     </ul>
   <% end %>
 </div>

@@ -67,12 +67,13 @@ class Customer::PostsController < ApplicationController
   end
   
   def ranking
-    @all_ranks = Post.find(Like.group(:post_id).order('count(post_id) DESC').limit(3).pluck(:post_id))
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) DESC').limit(3).pluck(:post_id))
     @posts = Post.order("created_at DESC")
+    #順番を並び替える
   end
   
   private
    def post_params
-    params.require(:post).permit(:introduction, :image)
+    params.require(:post).permit(:introduction, :image, :customer_id)
    end
 end
