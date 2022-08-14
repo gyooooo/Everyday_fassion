@@ -10,9 +10,9 @@
       <!--   <div class="slider">-->
           <% @posts.each do |post| %>
           <div class='post-img-content'>
-           <%#= link_to ("#{image_tag　post.image, class: 'sized'}"), customer_post_path(post.id) %>
+           <%#= link_to ("#{image_tag post.image, class: 'sized'}"), customer_post_path(post.id) %>
            <%= link_to customer_post_path(post.id) do %> 
-           <p class="sized"><%= post.image %></p>
+           <p class="sized"><%= image_tag post.image,size:"200x200" %></p>
           <% end %>
           </div>
          <!--</div>-->

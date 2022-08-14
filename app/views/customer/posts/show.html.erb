@@ -1,5 +1,12 @@
 <h1>投稿詳細</h1>
 
+<% if @posts %>
+<% @posts.each do |post| %>
+  <%= post.id %>
+<% end %>
+<% end %>
+<% if @post.present? %>
+
  <!--<%# if @post.customer == current_customer %>-->
   <p><%= link_to customer_customer_path(@post.customer.id)do %><%= @post.customer.nickname %><% end %></p>
  <!--<%# else %>-->
@@ -9,6 +16,16 @@
   <p><%= image_tag @post.image,size:"200x200" %></p>
 
   <p><%= @post.introduction %></p>
+  
+  
+  <% @post_tags.each do |tag| %>
+      #<%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id) %>
+      <%= "(#{tag.posts.count})" %>
+　<% end %>
+  
+  
+  
+  
   
     <% if @post.favorited_by?(current_customer) %>
     <p>
@@ -43,4 +60,6 @@
   <% if @post.customer == current_customer %>
    <td><%= link_to "Edit", edit_customer_post_path(@post.customer.id), class: 'btn btn-sm btn-success' %></td>
    <td><%= link_to "Destroy", customer_post_path(@post), class: 'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" %></td>
+  <% end %>
+  
   <% end %>

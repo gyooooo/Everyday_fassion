@@ -15,6 +15,18 @@
      <%= image_tag 'no_image.jpeg', size: "200x200" %>
     <% end %>
     
+    <h3>タグリスト</h3>
+     <% @tag_list.each do |list| %>
+       #<%= link_to list.tag_name, customer_tag_posts_path(tag_id: list.id) %>
+       <%= "(#{list.posts.count})" %>
+     <% end %>
+     
+     <% @posts.each do |post| %> 
+        <% post.tags.each do |tag| %>
+           #<%= link_to tag.tag_name, customer_tag_posts_path(tag_id: tag.id) %>
+        <% end %>
+     <% end %>
+    
      
      <%#= image_tag post.image, size: '340x260' if post.image.attached? %>
     <% end %>

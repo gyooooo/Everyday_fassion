@@ -1,6 +1,6 @@
 <% if admin_signed_in? %>
   <%= link_to admin_root_path do %>
-    <%#= image_tag "logo.jpg", size: "100x100" %>
+    <%= image_tag "icon6.png", size: "100x100" %>
   <% end %>
   <ul class="nav justify-content-end">
     <li class="nav-item btn"><%= link_to "投稿一覧", admin_posts_path, class: 'nav-link text-dark' %></li>
@@ -10,7 +10,7 @@
   </ul>
 <% elsif customer_signed_in? %>
   <%= link_to root_path do %>
-    <%#= image_tag "logo.jpg", size: "100x100" %>
+    <%= image_tag "icon6.png", size: "100x100" %>
   <% end %>
   <ul class="nav justify-content-end">
     <li class="nav-item btn"><%= link_to "マイページ", customer_customer_path(current_customer.id), class: 'nav-link text-dark' %></li>
@@ -18,10 +18,14 @@
     <li class="nav-item btn"><%= link_to "投稿一覧", customer_posts_path, class: 'nav-link text-dark' %></li>
     <li class="nav-item btn"><%= link_to "ランキング", customer_ranking_path, class: 'nav-link text-dark' %></li>
     <li class="nav-item btn"><%= link_to "ログアウト",  destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+    <%= form_with(url: search_customer_posts_path, local: true, method: :get, class: "search-form") do |f| %>
+    <%= f.text_field :keyword, placeholder: "検索する", class: "search-input" %>
+    <%= f.submit "検索", class: "search-btn", id: "search-icon" %>
   </ul>
+  <% end %>
 <% else %>
   <%= link_to root_path do %>
-    <%#= image_tag "logo.jpg", size: "100x100" %>
+    <%= image_tag "icon6.png", size: "100x100" %>
   <% end %>
   <ul class="nav justify-content-end">
     <li class="nav-item btn"><%= link_to 'ゲストログイン', customer_guest_sign_in_path, method: :post,  class: 'nav-link text-dark' %></li>
