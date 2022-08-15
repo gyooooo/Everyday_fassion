@@ -1,5 +1,6 @@
-<h1>投稿詳細</h1>
-
+<div class="container px-5 px-sm0">
+    <div class="col-md-12 offset-md"> 
+     <div class="row justify-content-center">
 <% if @posts %>
 <% @posts.each do |post| %>
   <%= post.id %>
@@ -15,7 +16,7 @@
   
   
   <% @post_tags.each do |tag| %>
-      #<%= link_to tag.tag_name, tag_posts_path(tag_id: tag.id) %>
+      #<%= link_to tag.tag_name, admin_posts_path(tag_id: tag.id) %>
       <%= "(#{tag.posts.count})" %>
 　<% end %>
   
@@ -59,3 +60,6 @@
   <% end %>
   
   <% end %>
+  </div>
+    </div>
+    </div>

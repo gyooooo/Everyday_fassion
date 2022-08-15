@@ -1,19 +1,22 @@
 <div class="border"></div>
-<div class='post-card-contents'>
-  <h2 class='nickname'>ランキング</h2>
+ <div class='post-card-contents'>
    <% @all_ranks.each.with_index(1) do |post, i| %>
       第<%= i %>位
      <ul class='post-lists'>
-           <div class='post-img-content'>
-           <%#= link_to ("#{image_tag post.image, class: 'sized'}"), customer_post_path(post.id) %>
-             <%= link_to customer_post_path(post.id) do %> 
-             <p class="sized"><%= image_tag post.image,size:"200x200" %></p>
-             <% end %>
-           </div>
-           <div class="post-info">
-            <h3 class="nickname"><%= post.customer.nickname %></h3>
-            <h3 class="introduction"><%= post.introduction %></h3>
-           </div>
-     </ul>
-   <% end %>
+    <div class="col-md-12 offset-md"> 
+     <div class="row justify-content-center">
+       <%= link_to customer_post_path(post.customer.id) do %>
+        <div class="card">
+         <div class="card-body">
+          <h5 class="card-title"><%= image_tag post.customer.get_profile_image(70,70) %><%= post.customer.nickname %></h5>
+          <p class="card-text"><small class="text-muted"><%= post.created_at %></small></p>
+         </div>
+         <%= image_tag post.image, size: "auto" if post.image.attached? %>
+        </div>
+       <% end %>
+      <% end %>
+      </div>
+    </div>
+   </ul>
+ </div>
 </div>
