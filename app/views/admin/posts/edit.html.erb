@@ -1,0 +1,27 @@
+<div class='container'>
+    <h3 class='mt-3'>投稿編集</h3><br>
+    <div class='row'>
+        <%= form_with model: @post, url: admin_post_path do |f| %>
+            <table class="table table-borderless">
+                <div class='colspan-md-3'>
+                        <tr>
+                            <th><label for='inputimage'>画像</label></th>
+                            <th><%= f.file_field :image %></th>
+                        </tr>
+                        <tr>
+                            <th><label for='introduction'>説明</label></th>
+                            <th><%= f.text_area :introduction, rows: '5', id:'post[introdution]', placeholder: "ここに説明文を記述します", class: 'form-control' %></th>
+                        </tr>
+                        <tr>
+                            <th>タグ</th>
+                            <th><%= f.collection_select :tag_maps, Genre.all, :id, :name, include_blank: "--選択してください--" %></th>
+                        </tr>
+                        <tr><th></th>
+                            <th><%= f.submit "変更を保存", class: 'btn btn-outline-success' %></th>
+                        </tr>
+
+                </div>
+            </table>
+        <% end %>
+    </div>
+</div>

@@ -1,34 +1,35 @@
-<!--自分のIDを渡す-->
-<!--NCのitems_controller 上と-->
-<!--view/public/homes/_genre_indexを参考-->
-
-<h3>投稿一覧</h3>
-<%# if @post.customer == current_customer %>
-
- <% @posts.each do |post| %>
-  <%= post.customer.nickname %>
-  <%= link_to customer_post_path(post.id) do %>
-   <%#= post.introduction %>
-    <% if post.image.attached? %>
-     <%= image_tag post.image, size: "200x200" %>
-    <% else %>
-     <%= image_tag 'no_image.jpeg', size: "200x200" %>
-    <% end %>
+<div class="container px-5 px-sm0">
+   <div class="row">
+    <div class="col-md-2">
+    <%= render partial: '/customer/posts/tag', locals: { customer: @customer } %>
+    </div>
     
-    <h3>タグリスト</h3>
-     <% @tag_list.each do |list| %>
-       #<%= link_to list.tag_name, customer_tag_posts_path(tag_id: list.id) %>
-       <%= "(#{list.posts.count})" %>
-     <% end %>
-     
-     <% @posts.each do |post| %> 
-        <% post.tags.each do |tag| %>
-           #<%= link_to tag.tag_name, customer_tag_posts_path(tag_id: tag.id) %>
-        <% end %>
-     <% end %>
-    
-     
-     <%#= image_tag post.image, size: '340x260' if post.image.attached? %>
-    <% end %>
- <% end %>
+    <div class="col-md-8 offset-md-1"> 
+     <div class="row justify-content-center">
+       <div class="card-deck">
+        <% @posts.each do |post| %>
+         <div class="col-12 col-md-6 col-lg-4 text-card-container">
+          <div class="card content-card border-dark">
+           <div class="card-header p-0">
+            <img class="card-img-top" src="image_tag post.image">
+             <%= post.customer.nickname %>
+             <%= link_to customer_post_path(post.id) do %>
+              <%#= post.introduction %>
+                <%#= image_tag post.image, size: "200x200" %>
+                <div class="card-body d-flex align-items-center">
+                 <p class="card-title text-left">Card title</p>
+                 </div>
+                 
+                <% end %>
+                </div>
+                </div>
+                </div>
+         
+          
+          <%#= image_tag post.image, size: '340x260' if post.image.attached? %>
+       <% end %>
 <%# end %>
+</div>
+</div>
+    </table>
+    </div>

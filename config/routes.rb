@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :customer do
-    get 'favorites/index'
-  end
   devise_for :customer, controllers: {
     registrations: "customer/registrations",
     sessions: 'customer/sessions',
@@ -22,6 +19,7 @@ Rails.application.routes.draw do
      root 'posts#index'
     get "home/about"=>"homes#about", as: "about"
     get "ranking"=>"posts#ranking", as: "ranking"
+    get 'favorites/index'
     resources :posts
     resources :tags do
       get 'posts', to: 'posts#search'
@@ -49,6 +47,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :edit, :update]
-    resource :comments, only: [:show]
+    resources :posts, only: [:index, :show, :edit]
+    resources :comments, only: [:show, :index, :edit]
   end
 end

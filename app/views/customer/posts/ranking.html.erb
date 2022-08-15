@@ -3,25 +3,17 @@
   <h2 class='nickname'>ランキング</h2>
    <% @all_ranks.each.with_index(1) do |post, i| %>
       第<%= i %>位
-     <%#= render partial: "post", local:{ post: @post} %>
      <ul class='post-lists'>
-      <!--<%# @posts.each do |post|%>-->
-      <!--  <li class='list'>-->
-      <!--   <div class="slider">-->
-          <% @posts.each do |post| %>
-          <div class='post-img-content'>
+           <div class='post-img-content'>
            <%#= link_to ("#{image_tag post.image, class: 'sized'}"), customer_post_path(post.id) %>
-           <%= link_to customer_post_path(post.id) do %> 
-           <p class="sized"><%= image_tag post.image,size:"200x200" %></p>
-          <% end %>
-          </div>
-         <!--</div>-->
-         <div class="post-info">
-           <h3 class="nickname"><%= post.customer.nickname %></h3>
-           <h3 class="introduction"><%= post.introduction %></h3>
-         </div>
-      <!--  </li>-->
-      <% end %>
+             <%= link_to customer_post_path(post.id) do %> 
+             <p class="sized"><%= image_tag post.image,size:"200x200" %></p>
+             <% end %>
+           </div>
+           <div class="post-info">
+            <h3 class="nickname"><%= post.customer.nickname %></h3>
+            <h3 class="introduction"><%= post.introduction %></h3>
+           </div>
      </ul>
-  <% end %>
+   <% end %>
 </div>

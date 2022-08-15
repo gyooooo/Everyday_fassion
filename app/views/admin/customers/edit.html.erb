@@ -1,2 +1,57 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+  <div class="container">
+    <div class="row">
+      <div class="col m-10">
+        <p id="notice"></p><h2>会員情報編集</h2>
+        <%= form_for(@customer, url: admin_customer_path(@customer)) do |f| %>
+          <table class="row table">
+
+            <tr>
+              <th><%= f.label :氏名 %></th>
+              <th>(姓)</th>
+              <th><%= f.text_field :first_name, class:"form-control" %></th>
+              <th>(名)</th>
+              <th><%= f.text_field :last_name, class:"form-control" %></th>
+              </td>
+            </tr>
+
+            <tr>
+              <th><%= f.label :フリガナ %></th>
+              <th>(セイ)</th>
+              <th><%= f.text_field :first_name_kana, class:"form-control" %></th>
+              <th>(メイ)</th>
+              <th><%= f.text_field :last_name_kana, class:"form-control" %></th>
+            </tr>
+
+            <tr>
+              <th><%= f.label :ニックネーム %></th>
+              <th></th>
+              <td><%= f.text_field :nickname, class:"form-control" %></td>
+              <th></th><th></th>
+            </tr>
+            
+            <tr>
+              <th><%= f.label :メールアドレス %></th>
+              <th></th>
+              <td><%= f.text_field :email , class:"form-control"%></td>
+              <th></th><th></th>
+            </tr>
+
+            <tr>
+              <th><%= f.label :会員ステータス %></th>
+              <th></th>
+              <td><%= f.radio_button :is_deleted, false %>
+                  <%= f.label :is_deleted, '有効会員', value: false %>
+              </td>
+              <th></th>
+               <td><%= f.radio_button :is_deleted, true %>
+                  <%= f.label :is_deleted, '退会済み', value: true %>
+              </td>
+            </tr>
+          </table>
+        <div class="row text-right">
+          <%= f.submit "変更を保存する" ,class: "btn btn-outline-success " %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

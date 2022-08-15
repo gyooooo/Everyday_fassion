@@ -18,7 +18,7 @@ class Customer::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
-    tag_list = params[:post][:tag_name].split(nil)  
+    tag_list = params[:post][:tag_name].split(/[[:space:]]/)
     if @post.save
       @post.save_tag(tag_list)                                                           
       redirect_to customer_posts_path
@@ -103,8 +103,8 @@ class Customer::PostsController < ApplicationController
   end
 
   def ranking
-    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) DESC').limit(3).pluck(:post_id))
-    @posts = Post.order("created_at DESC")
+    @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) DESC').pluck(:post_id))
+    # @posts = Post.order("created_at DESC")
     #順番を並び替える
   end
   
