@@ -20,26 +20,24 @@ Rails.application.routes.draw do
     get "home/about"=>"homes#about", as: "about"
     get "ranking"=>"posts#ranking", as: "ranking"
     get 'favorites/index'
-    resources :posts
     resources :tags do
       get 'posts', to: 'posts#search'
     end
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+     collection do
+       get 'search'
+     end
      resource :favorites, only: [:create, :destroy]
      resources :comments, only: [:create, :destroy]
     end
     get 'customers/unsubscribe' => 'customers#unsubscribe' 
     patch 'customers/withdraw' => 'customers#withdraw'
-    resources :customers, only: [:new, :show, :index, :edit, :update, :search] do
+    resources :customers, only: [:new, :show, :index, :edit, :update] do
       member do
         get :favorite
       end
     end
-    resources :posts do
-      collection do
-        get 'search'
-      end
-     end
+
     resources :commments, only: [:new, :edit]
   end
   

@@ -10,12 +10,11 @@ class Post < ApplicationRecord
     
   has_one_attached :image
   belongs_to :customer
-  belongs_to :genre, optional: true
   
   
-  # validates :title, presence: true
-
-# 　validates :introduction, presence: true, length: {maximum: 200}
+  validates :image, presence: true
+  # validates :search, presence: true
+# 　validates :introduction, presence: true
 
     def self.search(search)
       return Post.all unless search

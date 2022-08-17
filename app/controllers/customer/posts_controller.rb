@@ -29,13 +29,13 @@ class Customer::PostsController < ApplicationController
 
   def index
     #presentメソッドはデータが入ってるかどうかを識別するメソッド
-    if (params[:post_id]).present?
-      @post = Post.where(post_id: params[:post_id])
+    if (params[:tag_id]).present?
+      @posts = Post.where(tag_id: params[:tag_id])
       #モデル.where(カラム名: params[:受け取る名前＊カラム名だとわかりやすい])
       #whereメソッドは指定した条件に当てはまるデータを全て取得してくれる
     else
       @posts = Post.all
-      @tag_list = Tag.all
+      # @tag_list = Tag.all
     end
     # if (params[:post_name]).present?
     #   @post_name = params[:post_name]
@@ -56,12 +56,12 @@ class Customer::PostsController < ApplicationController
   end
 
   def edit
-    @tag_list=@post.tags.pluck(:tag_name).join(nil)
+    # @tag_list=@post.tags.pluck(:tag_name).join(nil)
     @post = Post.find(params[:id])
     if @post.customer == current_customer
       render "edit"
     else
-      redirect_to customers_path
+      redirect_to customer_customer_path
     end
   end
   
@@ -77,29 +77,25 @@ class Customer::PostsController < ApplicationController
   end
   
   def update
+    @post = Post.find(params[:id])
     tag_list = params[:post][:tag_name].split(nil)
     # もしpostの情報が更新されたら
-    if post.update(post_params)
+    if @post.update(post_params)
       # このpost_idに紐づいていたタグを@oldに入れる
-      old_relations = TagMap.where(post_id: post.id)
+      old_relations = TagMap.where(post_id: @post.id)
       # それらを取り出し、消す。
       old_relations.each do |relation|
         relation.delete
       end
-      post.save_tag(tag_list)
-      redirect_to post_path(post.id), notice:'投稿完了しました:)'
+      @post.save_tag(tag_list)
+      redirect_to customer_post_path(@post.id), notice:'投稿完了しました:)'
     else
       redirect_to :action => "edit"
     end
-        
+  end
+  
+  def tag
     @post = Post.find(params[:id])
-    if @post.update(post_params)
-      flash[:notice] = "投稿を更新しました"
-      redirect_to customer_post_path
-    else
-      @posts = Post.all
-      render :edit
-    end
   end
 
   def ranking
@@ -107,20 +103,21 @@ class Customer::PostsController < ApplicationController
     # @posts = Post.order("created_at DESC")
     #順番を並び替える
   end
-  
-  # def search
-  #   @posts = Post.search(params[:keyword])
-  # end
 
   def search
-    @posts = Post.search(params[:keyword])
-    @tag_list = Tag.all               # こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
-    @tag = Tag.find(params[:tag_id])  # クリックしたタグを取得
-    @posts = @tag.posts.all
+    if params[:keyword] != nil
+      @posts = Post.search(params[:keyword])
+    elsif params[:tag_id] != nil
+      @tag_list = Tag.all               # こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
+      @tag = Tag.find(params[:tag_id])  # クリックしたタグを取得
+      @posts = @tag.posts.all
+    else
+      @posts = Post.all
+    end
   end
   
 protected
   def post_params
-    params.require(:post).permit(:introduction, :image, :customer_id)
+    params.require(:post).permit(:introduction, :image, :customer_id, :tag_id)
   end
 end

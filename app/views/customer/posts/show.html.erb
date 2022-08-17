@@ -3,7 +3,7 @@
      <div class="row justify-content-center">
 <% if @posts %>
 <% @posts.each do |post| %>
-  <%= post.id %>
+  <%#= post.id %>
 <% end %>
 <% end %>
 <% if @post.present? %>
@@ -16,13 +16,9 @@
   
   
   <% @post_tags.each do |tag| %>
-      #<%= link_to tag.tag_name, admin_posts_path(tag_id: tag.id) %>
-      <%= "(#{tag.posts.count})" %>
-　<% end %>
-  
-  
-  
-  
+    #<%= link_to tag.tag_name, customer_tag_path(tag.id) %>
+  <% end %>
+
   
     <% if @post.favorited_by?(current_customer) %>
     <p>
@@ -44,14 +40,15 @@
     <p><%= image_tag comment.customer.get_profile_image(100,100) %></p>
     <%= comment.customer.nickname %>
     <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.body %>
+   <td><%= link_to '削除',  customer_post_comment_path(comment.post,comment), data: {confirm: '本当に削除しますか？'}, method: :delete %></td>
   <% end %>
- </div>
+</div>
  <div>
   <%= form_with url: customer_post_comments_path(@post) do |f| %>
-  <%#= form_with model: [@post, @comment] do |f| %>
     <%= f.text_area :body, rows: '5', placeholder: "コメントをここに" %>
-    <%= f.submit "送信する" %>
+    <%= f.submit "投稿" %>
   <% end %>
+  
  </div>
   
   <% if @post.customer == current_customer %>

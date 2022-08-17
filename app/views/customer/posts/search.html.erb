@@ -1,15 +1,33 @@
-<% @posts.each do |post| %>
-  <%= post.id %>
-<% end %>
+<% if params[:keyword] != nil %>
+    <div class="col-md-12 offset-md"> 
+     <div class="row justify-content-center">
+      <% @posts.each do |post| %>
+       <%= link_to customer_post_path(post.id) do %>
+        <div class="card">
+         <div class="card-body">
+          <h5 class="card-title"><%= image_tag post.customer.get_profile_image(70,70) %><%= post.customer.nickname %></h5>
+          <p class="card-text"><small class="text-muted"><%= post.created_at %></small></p>
+         </div>
+         <%= image_tag post.image, size: "auto" if post.image.attached? %>
+        </div>
+       <% end %>
+      <% end %>
 
-<h3>タグリスト</h3>
-<% @tag_list.each do |list| %>
-  <%= list.tag_name %>
-  <%= "(#{list.posts.count})" %>
-<% end %>
-<br>
-<%= "#{@tag.tag_name}" %>
-<br>
-<% @posts.each do |post| %>
-  <%= link_to post.introduction, customer_post_path(post.id) %>
+<% elsif params[:tag_id] != nil %>
+  <h3>タグリスト</h3>
+  <% @tag_list.each do |list| %>
+    <%= list.tag_name %>
+    <%= "(#{list.posts.count})" %>
+  <% end %>
+  <br>
+   <%= "#{@tag.tag_name}" %>
+  <br>
+  <% @posts.each do |post| %>
+   <%= link_to post.introduction, customer_post_path(post.id) %>
+  <% end %>
+
+<% else %>
+  <% @posts.each do |post| %>
+   <%= link_to post.introduction, customer_post_path(post.id) %>
+  <% end %>
 <% end %>

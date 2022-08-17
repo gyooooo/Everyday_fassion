@@ -3,12 +3,12 @@ class Customer::CommentsController < ApplicationController
     post = Post.find(params[:post_id])
     comment = current_customer.comments.new(comment_params)
     comment.save
-    redirect_to root_path(post)
+    redirect_to customer_post_path(post)
   end
   
   def destroy
     Comment.find(params[:id]).destroy
-    redirect_to root_path(params[:post_id])
+    redirect_to customer_post_path(params[:post_id])
   end
 
   private

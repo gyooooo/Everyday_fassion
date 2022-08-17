@@ -24,8 +24,8 @@
     
      <div class="field">
         <%= f.label"タグ (スペースで区切ると複数タグ登録できます)" %>
-        <%= f.text_field :tag_name, value: @tag_list,class:"form-control"%>
-   　</div>
+        <%= f.text_field :tag_name, value: @post.tags.pluck(:tag_name).join(" "),class:"form-control"%>
+     </div>
   
     <div class="form-group">
       <%= f.submit 'Update Book', class: "btn btn-success" %>

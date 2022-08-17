@@ -1,0 +1,5 @@
+<% @posts.each do |post| %> 
+  <% post.tags.each do |tag| %>
+     #<%= link_to tag.tag_name, customer_tag_posts_path(tag_id: tag.id) %>
+  <% end %>
+  <% end %>

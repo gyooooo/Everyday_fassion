@@ -5,7 +5,7 @@
      <ul class='post-lists'>
     <div class="col-md-12 offset-md"> 
      <div class="row justify-content-center">
-       <%= link_to customer_post_path(post.customer.id) do %>
+       <%= link_to customer_post_path(post.id) do %>
         <div class="card">
          <div class="card-body">
           <h5 class="card-title"><%= image_tag post.customer.get_profile_image(70,70) %><%= post.customer.nickname %></h5>
