@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.integer :genre_id
       t.integer :customer_id
       t.text :introduction
+      t.integer :tag_id
 
       t.timestamps
     end

@@ -19,6 +19,14 @@ class Admin::CommentsController < ApplicationController
   end
   
   def destroy
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      flash[:notice] = "Comment was successfully destroyed."
+      redirect_to admin_comments_path
+    else
+      @comments = Comment.all
+      render 'index'
+    end
   end
 
   private

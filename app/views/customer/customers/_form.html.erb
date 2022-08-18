@@ -5,14 +5,22 @@
     </tr>
     
     <tr>
-      <td><%= @customer.nickname %></td>
+      <td><%= customer.nickname %></td>
     </tr>
+      <% if customer.email == 'guest@test.com' %>
+        <a id="guest">#ゲストユーザーは編集できません</a>
+      <% elsif customer == current_customer %>
+       <%= link_to edit_customer_customer_path(customer) do %>
+        <button type="button" class="btn btn-online-info">編集する</button>
+       <% end %>
+      <% end %>
  
-       <%= link_to edit_customer_customer_path(@customer) do %>
-      <button type="button" class="btn btn-online-info">編集する</button><% end %>
+      <!-- <%#= link_to edit_customer_customer_path(@customer) do %>-->
+      <!--<button type="button" class="btn btn-online-info">編集する</button><%# end %>-->
  
      <p>
-      <%= link_to favorite_customer_customer_path(@customer) do %>
+      <%= link_to favorite_customer_customer_path(customer) do %>
       <button type="button" class="btn btn-online-info">いいね一覧</button><% end %>
     </p>
     
+     

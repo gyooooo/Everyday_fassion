@@ -52,7 +52,7 @@
  </div>
   
   <% if @post.customer == current_customer %>
-   <td><%= link_to "Edit", edit_customer_post_path(@post.customer.id), class: 'btn btn-sm btn-success' %></td>
+   <td><%= link_to "Edit", edit_customer_post_path(@post), class: 'btn btn-sm btn-success' %></td>
    <td><%= link_to "Destroy", customer_post_path(@post), class: 'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" %></td>
   <% end %>
   

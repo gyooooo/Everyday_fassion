@@ -1,6 +1,8 @@
 class Customer::TagsController < ApplicationController
   def show
-    @posts = Post.where(tag_id: params[:tag_id])
+    tag = Tag.find(params[:id])
+    @posts = tag.posts
+    # @posts = Post.where(tag_id: params[:id])
   end
 
 # protected

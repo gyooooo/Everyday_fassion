@@ -9,16 +9,14 @@
                 <div align="center">
                     <table>
                         <tr>
-                            <th><h4>写真</h4></th>
-                            <th><%= @post.image %></th>
-                        </tr>
-                        <tr>
                             <th><h4>説明</h4></th>
                             <th><%= @post.introduction %></th>
                         </tr>
                         <tr>
                             <th><h4>タグ</h4></th>
-                            <th><%= @post.tag_maps %></th>
+                            <th><% @post.tags.each do |tag| %>
+                                 #<%= tag.tag_name %>
+                                <% end %></th>
                         </tr>
                     </table><br>
                     <%= link_to '編集する', edit_admin_post_path(@post.id), class: "btn btn-lg btn-outline-success edit_item_#{@post.id}" %>

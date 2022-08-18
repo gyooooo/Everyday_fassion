@@ -20,6 +20,17 @@ class Admin::PostsController < ApplicationController
       render 'edit'
     end  
   end
+  
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      flash[:notice] = "Post was successfully destroyed."
+      redirect_to admin_posts_path
+    else
+      @posts = Post.all
+      render 'index'
+    end
+  end
 
   private
   def post_params

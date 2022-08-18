@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 2022_08_14_052028) do
     t.integer "genre_id"
     t.integer "customer_id"
     t.text "introduction"
+    t.integer "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
