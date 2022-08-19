@@ -1,30 +1,42 @@
-<div class="container px px-sm0">
-   <div class="row">
-    <div class="col-md-12">
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+ <div class="center-align">
 
+<% if @post.errors.any? %>
+<%= @post.errors %>画像を選択してください:>
+<% end %>
+<div style="text-align: center">
+ <h1>　</h1>
 <h3>新規投稿</h3>
 
+<table class="table">
 <%= form_with model: @post,url: '/customer/posts', method: :post do |f| %>
- <h5>本文</h5>
- <%= f.text_field :introduction %>
- <h5>写真</h5>
- <%= f.file_field :image, accept: "image/*" %>
- </br>
-  <p>スペースを入力することで複数のタグを付けることができます。</p>
-  <%= f.text_field :tag_name, placeholder: "Ruby Python Java" %>
+<tr>
+<th><h5>本文</h5></th>
+<th><%= f.text_area :introduction %></th>
+</tr>
 
- <%= f.submit '投稿' %>
+<tr>
+<th><h5>写真</h5></th>
+<th><%= f.file_field :image, accept: "image/*" %></th>
+</tr>
+
+<tr>
+<th><p>スペースを入力することで複数のタグを付けることができます。</p></th>
+<th><%= f.text_field :tag_name, placeholder: "Ruby Python Java" %></th>
+</tr>
+
+<div style="text-align: center">
+<th>
+<%= f.submit '投稿' %>
+</th>
+</div>
 <% end %>
 
-<!--<%# if @customer.errors.any? %>-->
-<!--  <%#= @customer.errors.count %>error prohibited this image from being saved:>-->
-<!--  <ul>-->
-<!--    <%# @customer.errors.full_messages.each do |message| %>-->
-<!--      <li><%#= message %></li>-->
-<!--    <%# end %>-->
-<!--  </ul>-->
-<!--<%# end %>-->
-
-  </div>
-  </div>
-  </div>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>

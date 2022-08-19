@@ -1,4 +1,6 @@
-<h3>マイページ</h3>
+<div class =container>
+<h1>　</h1>
+<h3>プロフィール</h3>
     
     <tr>
       <td><%= image_tag customer.get_profile_image(100,100) %></td>
@@ -6,21 +8,19 @@
     
     <tr>
       <td><%= customer.nickname %></td>
-    </tr>
+    </tr></br>
       <% if customer.email == 'guest@test.com' %>
         <a id="guest">#ゲストユーザーは編集できません</a>
       <% elsif customer == current_customer %>
        <%= link_to edit_customer_customer_path(customer) do %>
-        <button type="button" class="btn btn-online-info">編集する</button>
+        <button type="button" class="btn btn-online-dark">編集する</button>
        <% end %>
       <% end %>
  
-      <!-- <%#= link_to edit_customer_customer_path(@customer) do %>-->
-      <!--<button type="button" class="btn btn-online-info">編集する</button><%# end %>-->
- 
      <p>
       <%= link_to favorite_customer_customer_path(customer) do %>
-      <button type="button" class="btn btn-online-info">いいね一覧</button><% end %>
+      <button type="button" class="btn btn-online-dark">いいね一覧</button><% end %>
     </p>
+</div>
     
      

@@ -1,25 +1,28 @@
-<div class="container px-5 px-sm0">
-   <div class="row">
-    <div class="col-md-3">
-    <%= render partial: '/customer/customers/form', locals: { customer: @customer } %>
-    </div>
-    
-    <div class="col-md-8 offset-md-1"> 
-     <table class="table table-hover table-inverse">
-      
-      
-      
-    <div class="col-md-12 offset-md"> 
-     <div class="row justify-content-center">
-      <% @posts.each do |post| %>
-       <%= link_to customer_post_path(post.id) do %>
-        <div class="card">
-         <div class="card-body">
-          <p class="card-text"><small class="text-muted"><%= post.created_at %></small></p>
+<div class="container">
+ <div class="row">
+  <div class="col-md-4">
+   <%= render partial: '/customer/customers/form', locals: { customer: @customer } %>
+  </div>
+  
+   <div class="col-md-7"> 
+    <table class="table table-hover table-inverse">
+     <h1>　</h1>
+      <div class="row justify-content-center">
+       <% @posts.each do |post| %>
+        <%= link_to customer_post_path(post.id) do %>
+          <div class="shadow p-3 mb-5 bg-white rounded">
+           <div class="card">
+            <div class="card-body">
+             <p class="card-text"><small class="text-muted"><%= post.created_at %></small></p>
+            </div>
+             <%= image_tag post.image, size: "500x500" if post.image.attached? %>
+           </div>
+             <h1>　</h1>
          </div>
-         <%= image_tag post.image, size: "auto" if post.image.attached? %>
-        </div>
+        <% end %>
        <% end %>
-      <% end %>
       </div>
-      </div>
+    </table>
+   </div>
+ </div>
+</div>

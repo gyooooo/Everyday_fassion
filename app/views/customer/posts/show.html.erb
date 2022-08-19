@@ -7,6 +7,7 @@
 <% end %>
 <% end %>
 <% if @post.present? %>
+  <p><%= image_tag @post.customer.get_profile_image(70,70) %></p>
 
   <p><%= link_to customer_customer_path(@post.customer.id)do %><%= @post.customer.nickname %><% end %></p>
 
