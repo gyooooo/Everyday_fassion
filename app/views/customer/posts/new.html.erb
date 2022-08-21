@@ -1,42 +1,55 @@
 <div class="container">
-<div class="row">
-<div class="col-md-12">
- <div class="center-align">
-
-<% if @post.errors.any? %>
-<%= @post.errors %>画像を選択してください:>
-<% end %>
-<div style="text-align: center">
- <h1>　</h1>
-<h3>新規投稿</h3>
-
-<table class="table">
-<%= form_with model: @post,url: '/customer/posts', method: :post do |f| %>
-<tr>
-<th><h5>本文</h5></th>
-<th><%= f.text_area :introduction %></th>
-</tr>
-
-<tr>
-<th><h5>写真</h5></th>
-<th><%= f.file_field :image, accept: "image/*" %></th>
-</tr>
-
-<tr>
-<th><p>スペースを入力することで複数のタグを付けることができます。</p></th>
-<th><%= f.text_field :tag_name, placeholder: "Ruby Python Java" %></th>
-</tr>
-
-<div style="text-align: center">
-<th>
-<%= f.submit '投稿' %>
-</th>
-</div>
-<% end %>
-
-</table>
-</div>
-</div>
-</div>
-</div>
+ <div class="row">
+  <div class="col-md-12">
+   <div style="width: 800px; margin: auto;">
+    
+    <% if @post.errors.any? %>
+    <%= @post.errors %>画像を選択してください:>
+    <% end %>
+     <div style="text-align: center">
+      <h1>　</h1>
+      <h3>新規投稿</h3>
+     </div>
+     
+     <div style="text-align: left">
+      <table class="table">
+       <%= form_with model: @post,url: '/customer/posts', method: :post do |f| %>
+        <tr>
+         <th><h5>本文</h5></th>
+         <th></th>
+         <th></th>
+         <th><%= f.text_area :introduction %></th>
+        </tr>
+        
+        <tr>
+         <th><h5>写真</h5></th>
+         <th></th>
+         <th></th>
+         <th><%= f.file_field :image, accept: "image/*" %></th>
+        </tr>
+        
+        <tr>
+         <th><h5>ハッシュタグ</h5></th>
+         <th></th>
+         <th></th>
+         <th><%= f.text_field :tag_name, placeholder: "Ruby Python Java" %>
+             <p>スペースを入力することで複数のタグを付けることができます。</p>
+         </th>
+        </tr>
+        
+        <div style="width: 800px; margin: auto;">
+         <th></th>
+         <th></th>
+         <th></th>
+         <th>
+         <%= f.submit '投稿' %>
+         </th>
+        </div>
+       <% end %>
+      
+      </table>
+     </div>
+   </div>
+  </div>
+ </div>
 </div>

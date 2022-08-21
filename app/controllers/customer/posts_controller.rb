@@ -1,20 +1,10 @@
 class Customer::PostsController < ApplicationController
-  # def new
-  #   @post = Post.new
-  # end
-  
+
   def new
     @post = Post.new
     @post = current_customer.posts.new
   end
-  
-  # def create
-  #   @post = Post.new(post_params)
-  #   @post.customer_id = current_customer.id
-  #   @post.save
-  #   redirect_to root_path
-  # end
-  
+
   def create
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
@@ -35,15 +25,8 @@ class Customer::PostsController < ApplicationController
       #whereメソッドは指定した条件に当てはまるデータを全て取得してくれる
     else
       @posts = Post.all
-      # @tag_list = Tag.all
+      @posts = Post.all.order(created_at: :desc)
     end
-    # if (params[:post_name]).present?
-    #   @post_name = params[:post_name]
-    # else
-    #   @post_name = "商品"
-    # end
-
-    # @genres = Genre.all
   end
 
   def show
@@ -56,7 +39,6 @@ class Customer::PostsController < ApplicationController
   end
 
   def edit
-    # @tag_list=@post.tags.pluck(:tag_name).join(nil)
     @post = Post.find(params[:id])
     if @post.customer == current_customer
       render "edit"
@@ -100,16 +82,16 @@ class Customer::PostsController < ApplicationController
 
   def ranking
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) DESC').pluck(:post_id))
-    # @posts = Post.order("created_at DESC")
-    #順番を並び替える
   end
 
   def search
     if params[:keyword] != nil
       @posts = Post.search(params[:keyword])
     elsif params[:tag_id] != nil
-      @tag_list = Tag.all               # こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
-      @tag = Tag.find(params[:tag_id])  # クリックしたタグを取得
+      @tag_list = Tag.all
+      # こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
+      @tag = Tag.find(params[:tag_id])
+      # クリックしたタグを取得
       @posts = @tag.posts.all
     else
       @posts = Post.all
