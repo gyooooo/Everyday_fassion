@@ -13,7 +13,8 @@ class Customer::PostsController < ApplicationController
       @post.save_tag(tag_list)                                                           
       redirect_to customer_posts_path
     else
-      redirect_to new_customer_post_path
+      #redirect_to new_customer_post_path
+      render :new
     end
   end
 

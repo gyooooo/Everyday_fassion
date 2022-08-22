@@ -20,45 +20,43 @@
                 
                 <% @post_tags.each do |tag| %>
                 #<%= link_to tag.tag_name, customer_tag_path(tag.id) %>
+                <% end %></br>
+                
+                 <% if @post.customer == current_customer %>
+                <td><%= link_to "Edit", edit_customer_post_path(@post), class: 'btn btn-sm btn-success' %></td>
+                <td><%= link_to "Destroy", customer_post_path(@post), class: 'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" %></td>
                 <% end %>
+            
                 
+            </div>
                 
+            <div class="col-md-6 offset-md"> 
                 <% if @post.favorited_by?(current_customer) %>
                 <p>
                 <%= link_to customer_post_favorites_path(@post), method: :delete do %>
                 ♥<%= @post.favorites.count %> いいね
                 <% end %>
-                </p>
                 <% else %>
-                <p>
                 <%= link_to customer_post_favorites_path(@post), method: :post do %>
                 ♡<%= @post.favorites.count %> いいね
                 <% end %>
-                </p>
                 <% end %>
                 
-            </div>
                 
-            <div>
-                <p>コメント件数：<%= @post.comments.count %></p>
+                コメント件数：<%= @post.comments.count %></p>
                 <% @post.comments.each do |comment| %>
-                <p><%= image_tag comment.customer.get_profile_image(50,50) %></p>
+                <p><%= image_tag comment.customer.get_profile_image(40,40) %>
                 <%= comment.customer.nickname %>
                 <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.body %>
-                <td><%= link_to '削除',  customer_post_comment_path(comment.post,comment), data: {confirm: '本当に削除しますか？'}, method: :delete %></td>
+                <td><%= link_to '削除',  customer_post_comment_path(comment.post,comment), data: {confirm: '本当に削除しますか？'}, method: :delete %></td></p>
                 <% end %>
             </div>
-            <div>
+            <div class="col-md-6 offset-md"> 
                 <%= form_with url: customer_post_comments_path(@post) do |f| %>
                 <%= f.text_area :body, rows: '5', placeholder: "コメントをここに" %>
                 <%= f.submit "投稿" %>
                 <% end %>
             </div>
-                
-                <% if @post.customer == current_customer %>
-                <td><%= link_to "Edit", edit_customer_post_path(@post), class: 'btn btn-sm btn-success' %></td>
-                <td><%= link_to "Destroy", customer_post_path(@post), class: 'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" %></td>
-                <% end %>
                 
                 </div>
             </div>

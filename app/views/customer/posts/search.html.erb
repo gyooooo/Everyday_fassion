@@ -1,7 +1,7 @@
 <% if params[:keyword] != nil %>
  <div class="container">
   <div class="row">
-   <div style="width: 600px; margin: auto;">
+   <div style="width: 600px; margin: auto;" class="css-table">
     <table class="table table-hover table-inverse">
      <h1>　</h1>
       <% @posts.each do |post| %>
@@ -14,7 +14,6 @@
           </div>
           <%= image_tag post.image, size: "500x500" if post.image.attached? %>
          </div>
-         <h1>　</h1>
         </div>
        <% end %>
       <% end %>
