@@ -6,12 +6,12 @@
     <%# end %>
         <% if @post.present? %>
             <div class="col-md-12 offset-md">
-                <p><%= image_tag @post.customer.get_profile_image(70,70) %>
+                <p><%= image_tag @post.customer.get_profile_image(70,70), {class: "icon"} %>
                    <%= link_to customer_customer_path(@post.customer.id)do %><%= @post.customer.nickname %><% end %></p>
             </div>
                 
              <div class="col-md-6 offset-md"> 
-                <p><%= image_tag @post.image,size:"500x500" %></p>
+                <p><%= image_tag @post.image,{class: "card_image"} %></p>
             </div>
                 
             <div class="col-md-6 offset-md"> 
@@ -45,7 +45,7 @@
                 
                 コメント件数：<%= @post.comments.count %></p>
                 <% @post.comments.each do |comment| %>
-                <p><%= image_tag comment.customer.get_profile_image(40,40) %>
+                <p><%= image_tag comment.customer.get_profile_image(40,40), {class: "icon"} %>
                 <%= comment.customer.nickname %>
                 <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.body %>
                 <td><%= link_to '削除',  customer_post_comment_path(comment.post,comment), data: {confirm: '本当に削除しますか？'}, method: :delete %></td></p>
