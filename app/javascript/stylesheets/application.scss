@@ -1,30 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-.res {
-  
-}
-/* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
-@media screen and (max-width:1024px) {
-  .res {
-  }
-}
-/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
-@media screen and (max-width:768px) {
-  .res {
-  }
-}
-/* スマートフォンサイズ（425px）以下の際に適用される設定 */
-@media screen and (max-width:425px) {
-}
-
-@media screen and (max-width: 959px) {
-	/* 959px以下に適用されるCSS（タブレット用） */
-}
-@media screen and (max-width: 480px) {
-	/* 480px以下に適用されるCSS（スマホ用） */
-}
-
 .css-table {
     a{
     text-decoration: none;
@@ -41,5 +17,92 @@
 
 .card-body {
   background-color: #EEEEEE;
-  border-bottom: solid 3px #87CEFA;
+}
+
+.mv {
+  width: 100%;
+}
+
+.about-box {
+  line-height: 2.5;
+}
+
+.nav-btn {
+  top: 10px;
+  right: 10px;
+  background-color: #000;
+  color: #fff;
+  z-index: 9999;
+}
+
+.is-mobile {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .9);
+  z-index: 8888;
+}
+
+.is-mobile a {
+  color: #fff!important;
+}
+
+.search-form {
+  position: relative;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  display: block;
+  height: 2.3em;
+  width: 256px;
+  overflow: hidden;
+}
+
+.search-form input[type="text"] {
+  border: none;
+  height: 2.2rem;
+  padding: 2px 13px;
+}
+
+.search-form input[type="text"]:focus {
+  outline: 0;
+}
+
+.search-form button {
+  cursor: pointer;
+  border: none;
+  background: #f0f0f0;
+  color: #000;
+  position: absolute;
+  width: 3rem;
+  height: 3.0rem;
+  right: 0;
+  top: -5px;
+  outline: none;
+}
+
+.ranking{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 26px;
+	text-align: center;
+}
+
+.ranking::before,
+.ranking::after {
+	content: '';
+	width: 3px;
+	height: 40px;
+	background-color: #B0C4DE;
+}
+
+.ranking::before {
+	margin-right: 30px;
+	transform: rotate(-35deg)
+}
+
+.ranking::after {
+	margin-left: 30px;
+	transform: rotate(35deg)
 }

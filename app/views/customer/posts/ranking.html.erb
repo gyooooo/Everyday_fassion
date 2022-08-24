@@ -1,15 +1,13 @@
 <div class="container">
  <div class="row">
-  <div style="width: 600px; margin: auto;" class="css-table">
+  <div class="col-sm-12 col-md-8 col-lg-7 mx-auto mt-5">
    <div class='post-card-contents'>
     <table class="table table-hover table-inverse">
      <% @all_ranks.each.with_index(1) do |post, i| %>
-      <h1>　</h1>
-      <div style="text-align: center">
-       第<%= i %>位
-       <h5>　</h5>
+      <div style="text-align: center" >
+       <h1 class="ranking">第<%= i %>位</h1>
       </div>
-       <ul class='post-lists'>
+       <ul class='post-lists mt-5 '>
         <%= link_to customer_post_path(post.id) do %>
          <div class="shadow p-3 mb-5 bg-white rounded">
           <div class="card">

@@ -1,10 +1,6 @@
-
-
-<div class="container px-5 px-sm0">
+<div class="container">
    <div class="row">
-    <div style="width: 600px; margin: auto;" class="css-table">
-     <h1>　</h1>
-     <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-8 col-lg-7 mx-auto mt-5">
       <% @posts.each do |post| %>
        <%= link_to customer_post_path(post.id) do %>
         <div class="shadow p-3 mb-5 bg-white rounded">
@@ -19,4 +15,5 @@
        <% end %>
       <% end %>
      </div>
-    </div>
+   </div>
+</div>

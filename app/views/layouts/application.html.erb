@@ -2,23 +2,101 @@
 <html>
   <head>
     <title>EverydayFassion</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
   </head>
 
   <body>
-   <div class= "res">
-   <nav class="navbar expand-lg navbar-dark" style="background-color: #BBBBBB;">
-    <div class="container">
-     <%= render 'layouts/header' %>
+    <!-- ハンバーガーメニューアイコン -->
+   <div class="d-block d-md-none p-2 position-fixed nav-btn">
+    <i class="fas fa-bars fa-fw"></i>
+   </div>
+
+   <nav style="background-color: #BBBBBB;">
+    <div class="text-center">
+     <%= link_to root_path do %>
+      <%= image_tag "icon6.png", size: "80x80", class: 'm-2' %>
+     <% end %>
+    </div>
+    
+    <!-- PC版メニュー-->
+    <div class="d-none d-md-block">
+     <ul class="list-unstyled list-inline p-0 m-0 text-center">
+      <% if admin_signed_in? %>
+       <li class="list-inline-item"><%= link_to "投稿一覧", admin_posts_path, class: 'nav-link text-dark' %></li>
+       <li class="list-inline-item"><%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %></li>
+       <li class="list-inline-item"><%= link_to "コメント一覧", admin_comments_path, class: 'nav-link text-dark' %></li>
+       <li class="list-inline-item"><%= link_to "ログアウト",  destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+      <% elsif customer_signed_in? %>
+       <li class="list-inline-item"><%= link_to "マイページ", customer_customer_path(current_customer.id), class: 'nav-link text-dark' %></li>
+       <li class="list-inline-item"><%= link_to "新規投稿",  new_customer_post_path, class: 'nav-link text-dark' %></li>
+       <li class="list-inline-item"><%= link_to "投稿一覧", customer_posts_path, class: 'nav-link text-dark' %></li>
+       <li class="list-inline-item"><%= link_to "ランキング", customer_ranking_path, class: 'nav-link text-dark' %></li>
+       <li class="list-inline-item"><%= link_to "ログアウト",  destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %></li>
+      <% else %>
+       <li class="list-inline-item"><%= link_to 'ゲストログイン', customer_guest_sign_in_path, method: :post,  class: 'nav-link text-dark' %></li>
+       <li class="list-inline-item"><%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark' %></li>
+       <li class="list-inline-item"><%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark' %></li>
+      <% end %>
+     </ul>
+     <% if customer_signed_in? %>
+      <div class="w-100 d-flex justify-content-center pb-2">
+       <%= form_with(url: search_customer_posts_path, local: true, method: :get, class: "search-form") do |f| %>
+        <%= f.text_field :keyword, placeholder: "検索する", class: "search-input" %>
+        <button type="submit">
+         <i class="fas fa-search"></i>
+        </button>
+       <% end %>
+      </div>
+     <% end %>
     </div>
    </nav>
+   
+   <!-- スマホ版メニュー -->
+   <nav class="d-none is-mobile position-fixed">
+    <div class="h-100 d-flex flex-column justify-content-center align-items-center">
+     <%= link_to root_path do %>
+      <h2 class="text-white mb-3">EverydayFassion</h2>
+     <% end %>
+     
+     <% if customer_signed_in? %>
+      <div class="w-100 d-flex justify-content-center pb-2">
+       <%= form_with(url: search_customer_posts_path, local: true, method: :get, class: "search-form") do |f| %>
+        <%= f.text_field :keyword, placeholder: "検索する", class: "search-input" %>
+        <button type="submit">
+         <i class="fas fa-search"></i>
+        </button>
+       <% end %>
+      </div>
+     <% end %>
+     
+     <ul class="list-unstyled text-center">
+      <% if admin_signed_in? %>
+       <li><%= link_to "投稿一覧", admin_posts_path %></li>
+       <li><%= link_to "会員一覧", admin_customers_path %></li>
+       <li><%= link_to "コメント一覧", admin_comments_path %></li>
+       <li><%= link_to "ログアウト",  destroy_admin_session_path, method: :delete %></li>
+      <% elsif customer_signed_in? %>
+       <li><%= link_to "マイページ", customer_customer_path(current_customer.id) %></li>
+       <li><%= link_to "新規投稿",  new_customer_post_path %></li>
+       <li><%= link_to "投稿一覧", customer_posts_path %></li>
+       <li><%= link_to "ランキング", customer_ranking_path %></li>
+       <li><%= link_to "ログアウト",  destroy_customer_session_path, method: :delete %></li>
+      <% else %>
+       <li><%= link_to 'ゲストログイン', customer_guest_sign_in_path, method: :post %></li>
+       <li><%= link_to "新規登録", new_customer_registration_path %></li>
+       <li><%= link_to "ログイン", new_customer_session_path %></li>
+      <% end %>
+     </ul>
+    </div>
+   </nav>
+   
+   
     <%= yield %>
    <div class='container'>
     <div class='row'>
@@ -27,6 +105,6 @@
      </div>
     </div>
    </div>
-   </div>
+   <!--</div>-->
   </body>
 </html>

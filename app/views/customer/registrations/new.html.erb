@@ -1,75 +1,84 @@
 <div class="container">
   <div class="row">
-    <div style="width: 800px; margin: auto;">
-      <h2>新規登録</h2>
+    <div class="col-sm-12 col-md-8 col-lg-7 mx-auto mt-5">
+      <h3 class="text-center mt-5 mb-4">新規登録</h3>
       
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= render "customer/shared/error_messages", resource: resource %>
             
-            <table class="row table">
-              <tr>
-                <tr>
-                  <th><h5>名前</h5></th>
-                  <th><%= f.label :"(姓)" %></th>
-                  <th><%= f.text_field :first_name, autofocus: true, autocomplete: "姓" %></th>
-                  <th><%= f.label :"(名)" %></th>
-                  <th><%= f.text_field :last_name, autofocus: true, autocomplete: "名" %></th>
-                </tr>
-                
-                <tr>
-                  <th><h5>フリガナ</h5></th>
-                  <th><%= f.label :"(セイ)" %></th>
-                  <th><%= f.text_field :first_name_kana, autofocus: true, autocomplete: "セイ" %></th>
-                  <th><%= f.label :"(メイ)" %></th>
-                  <th><%= f.text_field :last_name_kana, autofocus: true, autocomplete: "メイ" %></th>
-                </tr>
-                
-                <tr>
-                  <th><h5>ニックネーム</h5></th>
-                  <th></th>
-                  <th><%= f.text_field :nickname, autofocus: true, autocomplete: "ニックネーム" %></th>
-                </tr>
-                
-                <tr>
-                  <th><h5>メールアドレス</h5></th>
-                  <th></th>
-                  <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
-                  <th></th>
-                  <th></th>
-                </tr>
-                
-                <tr>
-                  <th><h5>パスワード(6文字以上)</h5></th>
-                  <th><% if @minimum_password_length %><% end %></th>
-                  <th><%= f.password_field :password, autocomplete: "new-password" %></th>
-                  <th></th>
-                  <th></th>
-                </tr>
-                
-                <tr>
-                  <th><h5>パスワード(確認用)</h5></th>
-                  <th></th>
-                  <th><%= f.password_field :password_confirmation, autocomplete: "new-password" %></th>
-                  <th></th>
-                  <th></th>
-                </tr>
-
-                <tr>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th>
-                    <div class="actions">
-                    <%= f.submit "Sign up" %>
-                    </div>
-                    <%= render "customer/shared/links" %>
-                  </th>
-                </tr>
-              </tr>
-            </table>
+          <div class="form-group">
+           <div class="row">
+            <div class="col-md-3">名前</div>
+             <div class="col-md-9">
+              <%= f.label :"(姓)" %>
+              <%= f.text_field :first_name, autofocus: true, autocomplete: "姓" %>
+              <%= f.label :"(名)" %>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "名" %>
+             </div>
+           </div>  
+          </div>
           
-        <% end %>
-    </div>
+          <div class="form-group">
+           <div class="row">
+            <div class="col-md-3">フリガナ</div>
+             <div class="col-md-9">
+              <%= f.label :"(セイ)" %>
+              <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "セイ" %>
+              <%= f.label :"(メイ)" %>
+              <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "メイ" %>
+             </div>
+           </div>  
+          </div>
+          
+          <div class="form-group">
+           <div class="row">
+            <div class="col-md-3">ニックネーム</div>
+             <div class="col-md-9">
+              <%= f.text_field :nickname, autofocus: true, autocomplete: "ニックネーム" %>
+             </div>
+           </div>  
+          </div>
+          
+          <div class="form-group">
+           <div class="row">
+            <div class="col-md-3">メールアドレス</div>
+             <div class="col-md-9">
+               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+             </div>
+           </div>  
+          </div>
+          
+          <div class="form-group">
+           <div class="row">
+            <div class="col-md-3">パスワード(6文字以上)</div>
+             <div class="col-md-9">
+              <% if @minimum_password_length %><% end %>
+              <%= f.password_field :password, autocomplete: "new-password" %>
+             </div>
+           </div>  
+          </div>
+
+          <div class="form-group">
+           <div class="row">
+            <div class="col-md-3">パスワード(確認用)</div>
+             <div class="col-md-9">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+             </div>
+           </div>  
+          </div>
+          
+          <div class="row">
+          <div class="offset-0 offset-md-3 col-md-9">
+           <div class="actions">
+            <%= f.submit "Sign up", class: 'btn btn-secondary btn-block' %>
+            </div>
+            <%= render "customer/shared/links" %>
+           </div>
+          </div>
+         </div>
+       <% end %>
+      
+   </div>
   </div>
+ </div>
 </div>

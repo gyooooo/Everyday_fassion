@@ -1,13 +1,10 @@
 <div class="container">
  <div class="row">
-  <div class="col-md-4">
+  <div class="order-1 order-lg-0 col-lg-4 mt-5 mt-lg-0 about-box">
    <%= render partial: '/customer/customers/form', locals: { customer: @customer } %>
   </div>
   
-   <div class="col-md-7"> 
-    <div style="width: 600px; margin: auto;" class="css-table">
-    <table class="table table-hover table-inverse">
-     <h1>　</h1>
+   <div class="order-0 order-lg-1 col-lg-8 mt-5"> 
       <div class="row justify-content-center">
        <% @posts.each do |post| %>
         <%= link_to customer_post_path(post.id) do %>
@@ -26,4 +23,3 @@
     </div>
    </div>
  </div>
-</div>
