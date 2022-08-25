@@ -4,7 +4,7 @@
    <%= render partial: '/customer/customers/form', locals: { customer: @customer } %>
   </div>
   
-   <div class="order-0 order-lg-1 col-lg-8 mt-5"> 
+   <div class="order-1 order-lg-1 col-lg-8 mt-5"> 
       <div class="row justify-content-center">
        <% @posts.each do |post| %>
         <%= link_to customer_post_path(post.id) do %>

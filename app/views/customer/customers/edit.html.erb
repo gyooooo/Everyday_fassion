@@ -1,58 +1,62 @@
 <div class="container">
-  <div class="row">
-  <div class="col-md-12">
-  <div class="center-align">
-  <h1>　</h1>
-  <div style="text-align: center">
-<h3>会員情報編集</h3>
-</div>
-<div style="width: 800px; margin: auto;">
-  <%= form_with model: @customer, url: customer_customer_path(@customer) do |f| %>
-   <table class="row table">
-    <tr>
-      <th><%= f.label :プロフィール写真 %></th>
-      <th><%= f.file_field :profile_image %></th>
-      <th></th>
-    </tr>
+ <div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-7 mx-auto">
+   <h3 class="text-center mt-5 mb-4">会員情報編集</h3>
+   
+    <%= form_with model: @customer, url: customer_customer_path(@customer) do |f| %>
+     <div class="form-group">
+      <div class="row">
+       <div class="col-md-3"><%= f.label :プロフィール写真 %></div>
+       <div class="col-md-9"><%= f.file_field :profile_image %></div>
+      </div>
+     </div>
     
-    <tr>
-      <th><%= f.label :氏名 %></th>
-      <th><%= f.text_field :first_name, class:"form-control" %></th>
-      <th><%= f.text_field :last_name, class:"form-control" %></th>
-    </tr>
+     <div class="form-group">
+      <div class="row">
+       <div class="col-md-3"><%= f.label :名前 %></div>
+       <div class="col-md-9">
+         <%= f.label :"(姓)" %><%= f.text_field :first_name %>
+         <%= f.label :"(名)" %><%= f.text_field :last_name %>
+       </div>
+      </div>
+     </div>
      
-    <tr>
-      <th><%= f.label :フリガナ %></th>
-      <th><%= f.text_field :first_name_kana, class:"form-control" %></th>
-      <th><%= f.text_field :last_name_kana,class:"form-control" %></th>
-    </tr>
+     <div class="form-group">
+      <div class="row">
+       <div class="col-md-3"><%= f.label :フリガナ %></div>
+       <div class="col-md-9">
+         <%= f.label :"(セイ)" %><%= f.text_field :first_name_kana %>
+         <%= f.label :"(メイ)" %><%= f.text_field :last_name_kana %>
+        </div>
+      </div>
+     </div>
+     
+     <div class="form-group">
+      <div class="row">
+       <div class="col-md-3"><%= f.label :ニックネーム %></div>
+       <div class="col-md-9"><%= f.text_field :nickname %></div>
+      </div>
+     </div>
+     
+     <div class="form-group">
+      <div class="row">
+       <div class="col-md-3"><%= f.label :メールアドレス %></div>
+       <div class="col-md-9"><%= f.text_field :email %></div>
+      </div>
+     </div>
 
-    <tr>
-      <th><%= f.label :ニックネーム %></th>
-      <th><%= f.text_field :nickname, class:"form-control" %></th>
-      <th></th>
-    </tr>
     
-    <tr>
-      <th><%= f.label :メールアドレス %></th>
-      <th><%= f.text_field :email, class:"form-control" %></th>
-      <th></th>
-    </tr>
-    </div>
-    
-   <div style="width: 800px; margin: auto;">
-    <div class="form-group">
-      <th><input type="submit" name="commit" value="編集内容を保存" class="btn btn-outline-dark" data-disable-with="Update Customer"></th>
-      <th><%= link_to customer_customers_unsubscribe_path(current_customer) do %>
+   <div class="row">
+     <div class="offset-0 offset-md-3 col-md-9">
+      <div class="form-group">
+        <input type="submit" name="commit" value="編集内容を保存" class="btn btn-outline-dark" data-disable-with="Update Customer">
+          <%= link_to customer_customers_unsubscribe_path(current_customer) do %>
            <button type="button" class="btn btn-outline-dark">退会する</button>
           <% end %>
-          <th></th>
-      </th>
-      </
       </div>
-   </table>
+    </div>
+   </div>
   <% end %>
   </div>
-  </div>
-  </div>
+ </div>
 </div>

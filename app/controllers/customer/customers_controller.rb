@@ -7,14 +7,6 @@ class Customer::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @posts = @customer.posts
-    # @customers = current_customer
-    #     if (params[:customer_id]).present?
-    #   @post = Post.where(post_id: params[:customer_id])
-    #   #モデル.where(カラム名: params[:受け取る名前＊カラム名だとわかりやすい])
-    #   #whereメソッドは指定した条件に当てはまるデータを全て取得してくれる
-    # else
-    #   @posts = Post.all
-    # end
     @post_image = @customer.profile_image
   end
 
@@ -41,13 +33,6 @@ class Customer::CustomersController < ApplicationController
   
   def destroy
     @customer = Customer.find(params[:id])
-    # if @post.destroy
-    #   flash[:notice] = "退会"
-    #   redirect_to post_path
-    # else
-    #   @post = Post.all
-    #   render :edit
-    # end
   end
   
   def withdraw

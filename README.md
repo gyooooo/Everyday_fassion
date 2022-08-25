@@ -25,7 +25,12 @@
 ・好みの服やファッションアイテムを探したいとき  
 
 ## 設計書
-<...>
+ ワイヤーフレーム管理者側
+ https://drive.google.com/file/d/1bhP3Kd02IeZ0c1M-At6rFUtufhCqpi26/view?usp=sharing
+ 
+ ワイヤーフレーム顧客側
+ https://drive.google.com/file/d/18MrHFQHBbC0M9vaSH3itdJeH7FL8nMzT/view?usp=sharing
+ 
 
 ## 開発環境
 - OS：Linux(CentOS)
