@@ -37,7 +37,6 @@ Rails.application.routes.draw do
         get :favorite
       end
     end
-
     resources :commments, only: [:new, :edit]
   end
   
