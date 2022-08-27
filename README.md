@@ -25,17 +25,17 @@
 ・好みの服やファッションアイテムを探したいとき  
 
 ## 設計書
- ワイヤーフレーム管理者側
- https://drive.google.com/file/d/1bhP3Kd02IeZ0c1M-At6rFUtufhCqpi26/view?usp=sharing
+ ワイヤーフレーム管理者側</br>
+ https://drive.google.com/file/d/1gTXoFaYJS60_31i3fkZYfPD_BOmGUAxq/view?usp=sharing
  
- ワイヤーフレーム顧客側
- https://drive.google.com/file/d/18MrHFQHBbC0M9vaSH3itdJeH7FL8nMzT/view?usp=sharing
+ ワイヤーフレーム顧客側</br>
+ https://drive.google.com/file/d/1IjIKjfsk5INmoOBr9o0t8i4pypUV39wa/view?usp=sharing
  
  UI Flous管理者側
- https://drive.google.com/file/d/1nSacppNH51ls-5JYTKLBzkVnf86lAqWo/view?usp=sharing
+ https://drive.google.com/file/d/1KHiu0cXhjuUX_tADrrDD_CSWzaBYvRtT/view?usp=sharing
  
  UI Flous顧客側
- https://drive.google.com/file/d/13Ai1VxR5wZAwGygdDYany27OJ2nyChes/view?usp=sharing
+ https://drive.google.com/file/d/1jyOkEiXt53pCoA52w--qynQtsfw553kS/view?usp=sharing
  
  ER図
  https://drive.google.com/file/d/1NdYwmOsTazGyBXkLJzH3UTe4x_BTKNUq/view?usp=sharing

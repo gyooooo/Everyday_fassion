@@ -10,21 +10,24 @@
                 <p><%= image_tag @post.image,{class: "card_image"} %></p>
             </div>
                 
-            <div class="col-md-6 offset-md"> 
+            <div class="col-md-6 offset-md row">
+                <div class="col-md-12" style="white-space: pre-wrap;">
                 <p><%= @post.introduction %></p>
-                
-                
-                <% @post_tags.each do |tag| %>
-                #<%= link_to tag.tag_name, customer_tag_path(tag.id) %>
-                <% end %></br>
-                
-                 <% if @post.customer == current_customer %>
-                <td><%= link_to "Edit", edit_customer_post_path(@post), class: 'btn btn-sm btn-success' %></td>
-                <td><%= link_to "Destroy", customer_post_path(@post), class: 'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" %></td>
-                <% end %>
+                </div>
+            
+                 <div class="col-md-12 mt-auto">    
+                    <% @post_tags.each do |tag| %>
+                    #<%= link_to tag.tag_name, customer_tag_path(tag.id) %>
+                    <% end %></br>
+                    
+                     <% if @post.customer == current_customer %>
+                    <td><%= link_to "Edit", edit_customer_post_path(@post), class: 'btn btn-sm btn-success' %></td>
+                    <td><%= link_to "Destroy", customer_post_path(@post), class: 'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" %></td>
+                    <% end %>
+                </div>
             </div>
                 
-            <div class="col-md-6 offset-md"> 
+            <div class="col-md-6 offset-md my-5"> 
                 <% if @post.favorited_by?(current_customer) %>
                 <p>
                 <%= link_to customer_post_favorites_path(@post), method: :delete do %>
@@ -45,7 +48,7 @@
                 <td><%= link_to '削除',  customer_post_comment_path(comment.post,comment), data: {confirm: '本当に削除しますか？'}, method: :delete %></td></p>
                 <% end %>
             </div>
-            <div class="col-md-6 offset-md"> 
+            <div class="col-md-6 offset-md my-5"> 
                 <%= form_with url: customer_post_comments_path(@post) do |f| %>
                 <%= f.text_area :body, rows: '5', placeholder: "コメントをここに" %>
                 <%= f.submit "投稿" %>
