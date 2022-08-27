@@ -8,7 +8,7 @@ class Customer::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
-    tag_list = params[:post][:tag_name].split(/[[:space:]]/)
+    tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
     if @post.save
       @post.save_tag(tag_list)                                                           
       redirect_to customer_posts_path
