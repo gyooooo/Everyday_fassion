@@ -20,20 +20,20 @@
  </div>
  
  <% elsif params[:tag_id] != nil %>
- <h3>タグリスト</h3>
-  <% @tag_list.each do |list| %>
-   <%= list.tag_name %>
-   <%= "(#{list.posts.count})" %>
-  <% end %>
-   <br>
-   <%= "#{@tag.tag_name}" %>
-   <br>
-  <% @posts.each do |post| %>
-   <%= link_to post.introduction, customer_post_path(post.id) %>
-  <% end %>
-  
-  <% else %>
-  <% @posts.each do |post| %>
-   <%= link_to post.introduction, customer_post_path(post.id) %>
-  <% end %>
+  <h3>タグリスト</h3>
+    <% @tag_list.each do |list| %>
+     <%= list.tag_name %>
+     <%= "(#{list.posts.count})" %>
+    <% end %>
+     <br>
+     <%= "#{@tag.tag_name}" %>
+     <br>
+    <% @posts.each do |post| %>
+     <%= link_to post.introduction, customer_post_path(post.id) %>
+    <% end %>
+    
+    <% else %>
+    <% @posts.each do |post| %>
+     <%= link_to post.introduction, customer_post_path(post.id) %>
+    <% end %>
 <% end %>

@@ -23,7 +23,6 @@ ActiveStorage.start()
 $(document).ready(function(){
     
     $('.nav-btn').click(function() {
-    //   $(this).toggleClass('selected');
        console.log('click!!');
        $('.is-mobile').toggleClass('d-none');
     });

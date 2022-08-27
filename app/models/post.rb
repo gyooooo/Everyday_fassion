@@ -13,8 +13,6 @@ class Post < ApplicationRecord
   
   
   validates :image, presence: true
-  # validates :search, presence: true
-# 　validates :introduction, presence: true
 
     def self.search(search)
       return Post.all unless search

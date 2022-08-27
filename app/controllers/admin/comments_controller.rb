@@ -9,13 +9,9 @@ class Admin::CommentsController < ApplicationController
   end
   
   def edit
-    # @comment = Comment.find(params[:id])
   end
   
   def update
-    # @comment = Comment.find(params[:id])
-    # @comment.update(comment_params)
-    # redirect_to admin_comment_path(@comment.id)
   end
   
   def destroy
@@ -30,8 +26,4 @@ class Admin::CommentsController < ApplicationController
   end
 
   private
-
-  # def comment_params
-  #   params.require(:comment).permit(:comment, :comment_status)
-  # end
 end

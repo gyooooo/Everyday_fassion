@@ -31,17 +31,17 @@
  ワイヤーフレーム顧客側</br>
  https://drive.google.com/file/d/1IjIKjfsk5INmoOBr9o0t8i4pypUV39wa/view?usp=sharing
  
- UI Flous管理者側
+ UI Flous管理者側</br>
  https://drive.google.com/file/d/1KHiu0cXhjuUX_tADrrDD_CSWzaBYvRtT/view?usp=sharing
  
- UI Flous顧客側
+ UI Flous顧客側</br>
  https://drive.google.com/file/d/1jyOkEiXt53pCoA52w--qynQtsfw553kS/view?usp=sharing
  
- ER図
- https://drive.google.com/file/d/1NdYwmOsTazGyBXkLJzH3UTe4x_BTKNUq/view?usp=sharing
+ ER図</br>
+ https://drive.google.com/file/d/1UxIkQEKjCvj4MVFvprLPnHZgchfjfq_m/view?usp=sharing
  
- テーブル定義書
- https://docs.google.com/spreadsheets/d/1NyBd1zTtQMDPi0kGC_lV21UwcusI-8AYxirA0cMEtwU/edit?usp=sharing
+ テーブル定義書</br>
+ https://drive.google.com/file/d/12zoiPQSMqDEp6PpR_qo-bn-nEXSjv10q/view?usp=sharing
  
 
 ## 開発環境
@@ -52,5 +52,6 @@
 - IDE：Cloud9
 
 ## 使用素材
-仕様検討中です
+Adobe Stock</br>
+https://stock.adobe.com/jp
 
