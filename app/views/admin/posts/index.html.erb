@@ -1,5 +1,6 @@
 <div class='container'>
-    <h3>　投稿一覧 </h3>
+    <h3>投稿一覧</h3>
+  <div class='row border-bottom py-1'></div>
     <table class="table table-hover">
         <thead>
             <th class='col-sm-1'>
@@ -15,8 +16,7 @@
                 <h4>タグ</h4>
             </th>
         </thead>
-        <div class='jscroll'>
-            <div class='row border-bottom py-1'>
+        
                 <tbody>
                     <% @posts.each do |post| %>
                         <tr>
@@ -37,11 +37,8 @@
                             <td class='col-sm-2'>
                                 <%= link_to "Destroy", admin_post_path(post.id), class: 'btn btn-sm btn-danger edit_post_#{@post.id}', method: :delete, "data-confirm" => "本当に消しますか？" %>
                             </td>
-                            </td>s
                         </tr>
                     <% end %>
                 </tbody>
-            </div>
-        </div>
     </table>
 </div>
