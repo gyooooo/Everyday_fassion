@@ -20,6 +20,13 @@
                     #<%= link_to tag.tag_name, customer_tag_path(tag.id) %>
                     <% end %></br>
                     
+                    <!--API機能-->
+                    <div class="tag-box my-5">
+                    <% @post.genres.each do |genre| %>
+                    <span class="label">#<%= genre.name %><%#= link_to genre.name, customer_tag_path(genre.id) %></span>
+                    <% end %>
+                    </div>
+                    
                      <% if @post.customer == current_customer %>
                     <td><%= link_to "Edit", edit_customer_post_path(@post), class: 'btn btn-sm btn-success' %></td>
                     <td><%= link_to "Destroy", customer_post_path(@post), class: 'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" %></td>

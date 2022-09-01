@@ -9,7 +9,14 @@ class Customer::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
     tag_list = params[:post][:tag_name].split(/[[:blank:]]+/)
+    
     if @post.save
+      # APIのタグ機能
+      genres = Vision.get_image_data(@post.image)    
+      genres.each do |genre|
+      @post.genres.create(name: genre)
+      end
+      
       @post.save_tag(tag_list)                                                           
       redirect_to customer_posts_path
     else
@@ -24,7 +31,6 @@ class Customer::PostsController < ApplicationController
       #モデル.where(カラム名: params[:受け取る名前＊カラム名だとわかりやすい])
       #whereメソッドは指定した条件に当てはまるデータを全て取得してくれる
     else
-      @posts = Post.all
       @posts = Post.all.order(created_at: :desc)
     end
   end
@@ -92,9 +98,9 @@ class Customer::PostsController < ApplicationController
       # こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
       @tag = Tag.find(params[:tag_id])
       # クリックしたタグを取得
-      @posts = @tag.posts.all
+      @posts = @tag.posts.all.order(created_at: :desc)
     else
-      @posts = Post.all
+      @posts = Post.all.order(created_at: :desc)
     end
   end
   

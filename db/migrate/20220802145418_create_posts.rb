@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.integer :customer_id
       t.text :introduction
       t.integer :tag_id
+      t.decimal :score
 
       t.timestamps
     end

@@ -7,6 +7,7 @@ class Customer::CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @posts = @customer.posts
+    @posts = @customer.posts.all.order(created_at: :desc)
     @post_image = @customer.profile_image
   end
 
