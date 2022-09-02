@@ -9,11 +9,11 @@
           <div class="form-group">
            <div class="row">
             <div class="col-md-3">名前</div>
-             <div class="col-md-9">
+             <div class="col-md-9 hurigana">
               <%= f.label :"(姓)" %>
-              <%= f.text_field :first_name, autofocus: true, autocomplete: "姓" %>
+              <%= f.text_field :first_name, autofocus: true, autocomplete: "姓" ,class:"form-control" %>
               <%= f.label :"(名)" %>
-              <%= f.text_field :last_name, autofocus: true, autocomplete: "名" %>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "名" ,class:"form-control" %>
              </div>
            </div>  
           </div>
@@ -23,9 +23,9 @@
             <div class="col-md-3">フリガナ</div>
              <div class="col-md-9 hurigana">
               <%= f.label :"(セイ)" %>
-              <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "セイ" %>
+              <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "セイ" ,class:"form-control" %>
               <%= f.label :"(メイ)" %>
-              <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "メイ" %>
+              <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "メイ" ,class:"form-control" %>
              </div>
            </div>  
           </div>
