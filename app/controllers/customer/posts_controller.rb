@@ -69,13 +69,13 @@ class Customer::PostsController < ApplicationController
     tag_list = params[:post][:tag_name].split(nil)
     # もしpostの情報が更新されたら
     if @post.update(post_params)
-      # このpost_idに紐づいていたタグを@oldに入れる
-      old_relations = TagMap.where(post_id: @post.id)
-      # それらを取り出し、消す。
-      old_relations.each do |relation|
-        relation.delete
-      end
       @post.save_tag(tag_list)
+      @post.genres = []
+      genres = Vision.get_image_data(@post.image)    
+      genres.each do |genre|
+        @post.genres.create(name: genre)
+      end
+      
       redirect_to customer_post_path(@post.id), notice:'投稿完了しました:)'
     else
       redirect_to :action => "edit"
