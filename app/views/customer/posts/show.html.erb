@@ -21,9 +21,9 @@
                     <% end %></br>
                     
                     <!--API機能-->
-                    <div class="tag-box my-5">
+                    <div class="tag-box my-3">
                     <% @post.genres.each do |genre| %>
-                    <span class="label">#<%= genre.name %><%#= link_to genre.name, customer_tag_path(genre.id) %></span>
+                    <span class="label">#<%= link_to genre.name, customer_genre_path(genre.id) %></span>
                     <% end %>
                     </div>
                     

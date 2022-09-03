@@ -20,7 +20,9 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-$(document).ready(function(){
+// document.addEventListener("turbolinks:load", function(){
+// ターボリンクスロード
+    $(document).ready(function(){
     
     $('.nav-btn').click(function() {
        console.log('click!!');
@@ -28,3 +30,4 @@ $(document).ready(function(){
     });
     
 });
+// })

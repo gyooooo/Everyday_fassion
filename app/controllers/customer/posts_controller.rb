@@ -82,6 +82,10 @@ class Customer::PostsController < ApplicationController
     end
   end
   
+  def genre
+    @post = Post.find(params[:id])
+  end
+  
   def tag
     @post = Post.find(params[:id])
   end
@@ -92,7 +96,7 @@ class Customer::PostsController < ApplicationController
 
   def search
     if params[:keyword] != nil
-      @posts = Post.search(params[:keyword])
+      @posts = Post.search(params[:keyword]).order(created_at: :desc)
     elsif params[:tag_id] != nil
       @tag_list = Tag.all
       # こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得

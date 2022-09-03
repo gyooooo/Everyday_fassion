@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get "home/about"=>"homes#about", as: "about"
     get "ranking"=>"posts#ranking", as: "ranking"
     get 'favorites/index'
+    resources :genres, only: :show
     resources :tags do
       get 'posts', to: 'posts#search'
     end
