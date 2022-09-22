@@ -2,6 +2,17 @@
  <div class="row">
   <div class="order-1 order-lg-0 col-lg-4 mt-5 mt-lg-0 about-box">
    <%= render partial: '/customer/customers/form', locals: { customer: @customer } %>
+   <%= render "/customer/relationships/follow_button", customer: @customer %>
+   
+   <!--フォローフォロワー表示-->
+  <!-- <tr>-->
+  <!--  <th>follows</th>-->
+  <!--  <th><%#= link_to @customer.followings.count, customer_followings_path(@customer) %></th>-->
+  <!--</tr>-->
+  <!--<tr>-->
+  <!--  <th>followers</th>-->
+  <!--  <th><%#= link_to @customer.followers.count, customer_followers_path(@customer) %></th>-->
+  <!--</tr>-->
   </div>
   
    <div class="order-1 order-lg-1 col-sm-12 col-lg-8 col-lg-7 mx-auto mt-5"> 

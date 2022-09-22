@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       end
     end
     resources :commments, only: [:new, :edit]
+    resources :relationships, only: [:create, :destroy]
   end
   
   namespace :admin do

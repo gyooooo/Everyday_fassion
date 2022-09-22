@@ -3,6 +3,10 @@ class Customer < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :posts, dependent: :destroy
+  has_many :relationships
+  has_many :followings, through: :relationships, source: :follow
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+  has_many :followers, through: :reverse_of_relationships, source: :customer
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -19,5 +23,23 @@ class Customer < ApplicationRecord
       profile_image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
     profile_image.variant( resize: "60x60^!", gravity: "center", crop: "60x60+0+0" )
+  end
+  
+  # フォローする
+  def follow(other_customer)
+    unless self == other_customer
+      self.relationships.find_or_create_by(follow_id: other_customer.id)
+    end
+  end
+  
+  # フォローを外す
+  def unfollow(other_customer)
+    relationship = self.relationships.find_by(follow_id: other_customer.id)
+    relationship.destroy if relationship
+  end
+  
+  # すでにフォローしているのか確認
+  def following?(other_customer)
+    self.followings.include?(other_customer)
   end
 end
