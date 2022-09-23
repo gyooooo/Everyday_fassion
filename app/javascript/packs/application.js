@@ -29,5 +29,23 @@ document.addEventListener("turbolinks:load", function(){
        $('.is-mobile').toggleClass('d-none');
     });
     
+    $(function(){
+    ScrollReveal().reveal('.left', {
+      duration: 5000,
+      origin: 'left',
+      distance: '50px',
+      reset: true
+    });
+    });
+    
+    $(function(){
+    ScrollReveal().reveal('.right', {
+      duration: 5000,
+      origin: 'right',
+      distance: '50px',
+      reset: true
+    });
+    });
+
 });
 })

@@ -1,5 +1,5 @@
 class Customer::RelationshipsController < ApplicationController
-  before_action :set_customer
+  before_action :set_customer, only: [:create, :destroy]
   
   def create
     following = current_customer.follow(@customer)
@@ -22,9 +22,20 @@ class Customer::RelationshipsController < ApplicationController
       redirect_to customer_customer_path(@customer)
     end
   end
+  
+  def followings
+    @user = Customer.find(params[:id])
+    @customers = @user.followings
+  end
+
+  def followers
+    @user = Customer.find(params[:id])
+    @customers = @user.followers
+  end
 
   private
   def set_customer
     @customer = Customer.find(params[:follow_id])
+    # @user = Customer.find(params[:id])
   end
 end

@@ -1,5 +1,6 @@
 class Customer::CustomersController < ApplicationController
   before_action :authenticate_customer!
+  before_action :set_customer, only: [:followings, :followers]
   
   def new
   end
@@ -48,9 +49,21 @@ class Customer::CustomersController < ApplicationController
     @favorite_posts = Post.where(id: @customer.favorites.pluck(:post_id))
   end
   
+  def followings
+    @customers = @customer.followings
+  end
+
+  def followers
+    @customers = @customer.followers
+  end
+  
   private
     def customer_params
         params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :profile_image, :nickname)
+    end
+    
+    def set_customer
+     @customer = Customer.find(params[:id])
     end
     
   def correct_customer

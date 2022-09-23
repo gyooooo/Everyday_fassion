@@ -15,10 +15,22 @@
         <button type="button" class="btn btn-outline-dark my-2">編集する</button>
        <% end %>
       <% end %>
+      
+    <%= render "/customer/relationships/follow_button", customer: @customer %>
  
-     <p>
+    <p>
       <%= link_to favorite_customer_customer_path(customer) do %>
       <button type="button" class="btn btn-outline-dark">いいね一覧</button><% end %>
+    </p>
+    
+     <!--フォローフォロワー表示-->
+    <p>
+      <%= link_to followings_customer_relationship_path(customer.id) do %>
+      <button type="button" class="btn btn-outline-dark">フォロー一覧</button><% end %>
+    </p>
+    <p>
+      <%= link_to followers_customer_relationship_path(customer.id) do %>
+      <button type="button" class="btn btn-outline-dark">フォロワー一覧</button><% end %>
     </p>
     
 </div>

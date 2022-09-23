@@ -37,9 +37,16 @@ Rails.application.routes.draw do
       member do
         get :favorite
       end
+      # member do
+      # get :followings, :followers
+      # end
     end
     resources :commments, only: [:new, :edit]
-    resources :relationships, only: [:create, :destroy]
+    resources :relationships, only: [:create, :destroy] do
+      member do
+      get :followings, :followers
+      end
+    end
   end
   
   namespace :admin do
