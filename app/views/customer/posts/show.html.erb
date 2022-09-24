@@ -28,8 +28,16 @@
                     </div>
                     
                      <% if @post.customer == current_customer %>
-                    <td><%= link_to "Edit", edit_customer_post_path(@post), class: 'btn btn-sm btn-success' %></td>
-                    <td><%= link_to "Destroy", customer_post_path(@post), class: 'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" %></td>
+                    <td>
+                      <%= link_to edit_customer_post_path(@post), class: 'btn btn-sm btn-success' do %>
+                        <i class="fas fa-edit"></i>
+                      <% end %>
+                    </td>
+                    <td>
+                      <%= link_to customer_post_path(@post), class: 'btn btn-sm btn-danger', method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" do %>
+                        <i class="fas fa-trash-alt"></i> 
+                      <% end %>
+                    </td>
                     <% end %>
                 </div>
             </div>
@@ -47,7 +55,7 @@
                 <% end %>
                 
                 
-                コメント件数：<%= @post.comments.count %></p>
+                <i class="fas fa-comments"></i>コメント：<%= @post.comments.count %>件</p>
                 <% @post.comments.each do |comment| %>
                 <p><%= image_tag comment.customer.get_profile_image(40,40), {class: "icon"} %>
                 <%= comment.customer.nickname %>

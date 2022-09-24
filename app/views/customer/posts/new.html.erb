@@ -16,7 +16,7 @@
          <div class="form-group">
           <div class="row">
            <div class="col-md-3">
-            写真
+            <i class="fas fa-camera-retro"></i> 写真
            </div>
            <div class="col-md-9">
             <%= f.file_field :image, accept: "image/*" %>
@@ -27,7 +27,7 @@
          <div class="form-group">
           <div class="row">
            <div class="col-md-3">
-            本文
+            <i class="fas fa-pencil-alt"></i> 本文
            </div>
            <div class="col-md-9">
             <%= f.text_area :introduction, class: 'form-control' %>
@@ -38,7 +38,7 @@
          <div class="form-group">
           <div class="row">
            <div class="col-md-3">
-            ハッシュタグ
+            <i class="fas fa-tags"></i> ハッシュタグ
            </div>
            <div class="col-md-9">
             <%= f.text_field :tag_name, class: 'form-control' , placeholder: "Ruby Python Java" %>

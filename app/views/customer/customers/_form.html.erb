@@ -12,7 +12,9 @@
         <a id="guest">#ゲストユーザーは編集できません</a>
       <% elsif customer == current_customer %>
        <%= link_to edit_customer_customer_path(customer) do %>
-        <button type="button" class="btn btn-outline-dark my-2">編集する</button>
+        <button type="button" class="btn btn-outline-dark my-2">
+          <i class="fas fa-user-edit"></i>編集する
+        </button>
        <% end %>
       <% end %>
       
@@ -20,17 +22,20 @@
  
     <p>
       <%= link_to favorite_customer_customer_path(customer) do %>
-      <button type="button" class="btn btn-outline-dark">いいね一覧</button><% end %>
+        <button type="button" class="btn btn-outline-dark">
+         <i class="fas fa-thumbs-up"></i>いいね一覧
+        </button>
+      <% end %>
     </p>
     
      <!--フォローフォロワー表示-->
     <p>
       <%= link_to followings_customer_relationship_path(customer.id) do %>
-      <button type="button" class="btn btn-outline-dark">フォロー一覧</button><% end %>
+      <button type="button" class="btn btn-outline-dark"><%= @customer.followings.count %>フォロー</button><% end %>
     </p>
     <p>
       <%= link_to followers_customer_relationship_path(customer.id) do %>
-      <button type="button" class="btn btn-outline-dark">フォロワー一覧</button><% end %>
+      <button type="button" class="btn btn-outline-dark"><%= @customer.followers.count %>フォロワー</button><% end %>
     </p>
     
 </div>

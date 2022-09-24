@@ -14,7 +14,9 @@
     <%= form_with model: @post,url: customer_post_path do |f| %>
     <div class="form-group">
      <div class="row">
-      <div class="col-md-3">画像</div>
+      <div class="col-md-3">
+       <i class="fas fa-camera-retro"></i> 写真
+      </div>
       <div class="col-md-9">
        <%= f.file_field :image %>
       </div>
@@ -23,7 +25,9 @@
   
     <div class="form-group">
      <div class="row">
-      <div class="col-md-3">Introduction</div>
+      <div class="col-md-3">
+       <i class="fas fa-pencil-alt"></i> 本文
+      </div>
       <div class="col-md-9">
        <%= f.text_area :introduction ,class: "form-control book_body"  %>
       </div>
@@ -33,7 +37,7 @@
      <div class="form-group">
       <div class="row">
        <div class="col-md-3">
-        ハッシュタグ
+        <i class="fas fa-tags"></i> ハッシュタグ
        </div>
        <div class="col-md-9">
          <%= f.text_field :tag_name, value: @post.tags.pluck(:tag_name).join(" "),class:"form-control"%>
