@@ -46,6 +46,14 @@ document.addEventListener("turbolinks:load", function(){
         reset: true
       });
     });
+    
+    $(function() {
+      $('.a').slick({
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+      });
+    });
 
   });
 })
