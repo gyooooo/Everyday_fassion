@@ -22,30 +22,30 @@ ActiveStorage.start()
 
 document.addEventListener("turbolinks:load", function(){
 // ターボリンクスロード
-    $(document).ready(function(){
-    
+  $(document).ready(function(){
+  
     $('.nav-btn').click(function() {
-       console.log('click!!');
+      // console.log('click!!');
        $('.is-mobile').toggleClass('d-none');
     });
     
     $(function(){
-    ScrollReveal().reveal('.left', {
-      duration: 5000,
-      origin: 'left',
-      distance: '50px',
-      reset: true
-    });
+      ScrollReveal().reveal('.left', {
+        duration: 5000,
+        origin: 'left',
+        distance: '50px',
+        reset: true
+      });
     });
     
     $(function(){
-    ScrollReveal().reveal('.right', {
-      duration: 5000,
-      origin: 'right',
-      distance: '50px',
-      reset: true
-    });
+      ScrollReveal().reveal('.right', {
+        duration: 5000,
+        origin: 'right',
+        distance: '50px',
+        reset: true
+      });
     });
 
-});
+  });
 })

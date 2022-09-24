@@ -7,7 +7,6 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://unpkg.com/scrollreveal"></script>
     
@@ -41,15 +40,20 @@
           <i class="far fa-address-book"></i> マイページ
         <% end %>
        </li>
-       <li class="list-inline-item">
-        <%= link_to new_customer_post_path, class: 'nav-link text-dark' do %>
-          <i class="fas fa-pencil-alt"></i> 新規投稿
-        <% end %>
+       <li class="list-inline-item nav-item">
+         <%= link_to new_customer_post_path, class: 'nav-link text-dark' do %>
+           <i class="fas fa-pencil-alt"></i> 新規投稿
+         <% end %>
        </li>
-       <li class="list-inline-item">
-        <%= link_to customer_posts_path, class: 'nav-link text-dark' do %>
-          <i class="far fa-list-alt"></i> 投稿一覧
-        <% end %>
+       
+       <li class="list-inline-item nav-item dropdown">
+         <a class="btn btn-Link dropdown-toggle" href="#" role="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           <i class="far fa-list-alt"></i> 投稿一覧
+         </a>
+         <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+           <li><%= link_to "投稿一覧", customer_posts_path, class: 'dropdown-item text-dark' %></li>
+           <li><%= link_to "フォロータイムライン", follow_customer_customer_path(current_customer), class: 'dropdown-item text-dark' %></li>
+         </ul>
        </li>
        <li class="list-inline-item">
         <%= link_to customer_ranking_path, class: 'nav-link text-dark' do %>

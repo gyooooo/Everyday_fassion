@@ -43,6 +43,29 @@ class Customer::PostsController < ApplicationController
     @comment = Comment.new
     @post_tags = @post.tags
   end
+  
+  def follow
+    @customer = Customer.find(current_customer.id)
+    @custoemrs = @customer.followings
+    @posts = []
+    
+    if @customers.present?
+    @customers.each do |customer|
+    following_customer_posts = Post.where(customer_id: customer.id).order(created_at: :desc)
+    current_customer_posts = Post.where(customer_id: current_customer.id).order(created_at: :desc)
+    #取得したユーザーの投稿一覧を@postsに格納
+    @posts.concat(following_customer_posts)
+    @posts.concat(current_customer_posts)
+    end
+    #@postsを新しい順に並べたい
+    @posts.sort_by!{|post| post.created_at}.reverse!
+    if @posts.nil?
+      flash[:notice]="もっとたくさんの仲間をフォローしましょう！"
+      end
+      else
+      flash[:notice]="誰かをフォローしてみましょう！"
+    end
+  end
 
   def edit
     @post = Post.find(params[:id])

@@ -57,6 +57,23 @@ class Customer::CustomersController < ApplicationController
     @customers = @customer.followers
   end
   
+  def follow
+    @customer = Customer.find(current_customer.id)
+    @customers = @customer.followings
+    @posts = []
+    
+    if @customers.present?
+    @customers.each do |customer|
+    following_customer_posts = Post.where(customer_id: customer.id).order(created_at: :desc)
+    # current_customer_posts = Post.where(customer_id: current_customer.id).order(created_at: :desc)
+    #取得したユーザーの投稿一覧を@postsに格納
+    @posts.concat(following_customer_posts)
+    end
+    #@postsを新しい順に並べたい
+    @posts.sort_by!{|post| post.created_at}.reverse!
+    end
+  end
+  
   private
     def customer_params
         params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :profile_image, :nickname)

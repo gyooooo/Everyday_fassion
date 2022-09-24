@@ -28,6 +28,9 @@ Rails.application.routes.draw do
      collection do
        get 'search'
      end
+    # member do
+    #   get :follow
+    # end
      resource :favorites, only: [:create, :destroy]
      resources :comments, only: [:create, :destroy]
     end
@@ -36,10 +39,8 @@ Rails.application.routes.draw do
     resources :customers, only: [:new, :show, :index, :edit, :update] do
       member do
         get :favorite
+        get :follow
       end
-      # member do
-      # get :followings, :followers
-      # end
     end
     resources :commments, only: [:new, :edit]
     resources :relationships, only: [:create, :destroy] do

@@ -1,14 +1,14 @@
 <% unless current_customer == customer %>
   <% if current_customer.following?(customer) %>
     <% relationship = current_customer.relationships.find_by(follow_id: customer.id) %>
-    <%= form_with model:relationship, url: customer_relationship_path(relationship),html: { method: :delete } do |f| %>
+    <%= form_with model:relationship, url: customer_relationship_path(relationship),html: { method: :delete }, class: "d-inline" do |f| %>
       <%= hidden_field_tag :follow_id, customer.id %>
       <%= button_tag :type => "submit", :class =>"btn btn-danger my-3" do %>
         <i class="fas fa-user-slash"></i>フォロー解除
       <% end %>
     <% end %>
   <% else %>
-    <%= form_with model:current_customer.relationships.build, url: customer_relationships_path do |f| %>
+    <%= form_with model:current_customer.relationships.build, url: customer_relationships_path, class: "d-inline" do |f| %>
       <%= hidden_field_tag :follow_id, customer.id %>
        <%= button_tag :type => "submit", :class =>"btn btn-primary my-3" do %>
         <i class="fas fa-user-plus"></i>フォローする
