@@ -15,12 +15,7 @@
             　<%= render "/customer/relationships/follow_button", customer: customer %>
             　
             　<% if customer.following?(current_customer) %>
-               <%# relationship = current_customer.relationships.find_by(follow_id: customer.id) %>
-                フォローされています
-             <!--<%# else %>-->
-             <!--  <%#= form_with model:current_customer.relationships.build, url: customer_relationships_path do |f| %>-->
-             <!--    <%#= hidden_field_tag :follow_id, customer.id %>-->
-             <!--  <%# end %>-->
+                <span class="font">フォローされています</span>
               <% end %>
              
             </h5>

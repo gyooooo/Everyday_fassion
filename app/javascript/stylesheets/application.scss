@@ -161,10 +161,15 @@
  .btn:focus, .btn.focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgb(187 187 187/ 0%);
-}
+  }
 
 // PC版も白くなってしまう
 // .btn:hover {
 //     color: white;
 //     text-decoration: none;
 // }
+
+.font {
+  font-size: 15px;
+  color: #a9a9a9;
+  }
