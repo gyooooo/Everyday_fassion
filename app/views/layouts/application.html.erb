@@ -54,7 +54,7 @@
            <i class="far fa-list-alt"></i> 投稿一覧
          </a>
          <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-           <li><%= link_to "投稿一覧", customer_posts_path, class: 'dropdown-item text-dark' %></li>
+           <li><%= link_to "みんなの投稿一覧", customer_posts_path, class: 'dropdown-item text-dark' %></li>
            <li><%= link_to "フォロータイムライン", follow_customer_customer_path(current_customer), class: 'dropdown-item text-dark' %></li>
          </ul>
        </li>
@@ -115,11 +115,11 @@
        <li><%= link_to "マイページ", customer_customer_path(current_customer.id) %></li>
        <li><%= link_to "新規投稿",  new_customer_post_path %></li>
        <li class="list-inline-item nav-item dropdown">
-         <a class="btn btn-Link dropdown-toggle" href="#" role="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <a class="btn btn-Link dropdown-toggle btn:hover1" href="#" role="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            投稿一覧
          </a>
          <ul class="dropdown-menu text-dark" aria-labelledby="dropdownMenu text-dark">
-           <li><%= link_to "投稿一覧", customer_posts_path, class: 'dropdown-item text-dark' %></li>
+           <li><%= link_to "みんなの投稿一覧", customer_posts_path, class: 'dropdown-item', style: "color: black;" %></li>
            <li><%= link_to "フォロータイムライン", follow_customer_customer_path(current_customer), class: 'dropdown-item text-dark' %></li>
          </ul>
        </li>

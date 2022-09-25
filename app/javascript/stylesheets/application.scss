@@ -51,7 +51,7 @@
 }
 
 .is-mobile a {
-  color: #fff!important;
+  color: #fff
 }
 
 .search-form {
@@ -156,3 +156,15 @@
  color: #e54747;
  margin-left: 20px;
  }
+ 
+ 
+ .btn:focus, .btn.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(187 187 187/ 0%);
+}
+
+// PC版も白くなってしまう
+// .btn:hover {
+//     color: white;
+//     text-decoration: none;
+// }

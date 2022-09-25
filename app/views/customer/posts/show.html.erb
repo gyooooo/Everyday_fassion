@@ -47,8 +47,7 @@
                     <span id="favorite_buttons_<%= @post.id %>">
                         <%= render "customer/favorites/favorites", post: @post %>
                     </span>
-                　 
-                　 
+                    
                 <i class="fas fa-comments"></i>コメント：<%= @post.comments.count %>件</p>
                 <% @post.comments.each do |comment| %>
                 <p><%= image_tag comment.customer.get_profile_image(40,40), {class: "icon"} %>
