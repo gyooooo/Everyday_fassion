@@ -31,22 +31,36 @@ document.addEventListener("turbolinks:load", function(){
        $('.is-mobile').toggleClass('d-none');
     });
     
-    $(function(){
-      ScrollReveal().reveal('.left', {
-        duration: 5000,
-        origin: 'left',
-        distance: '50px',
-        reset: true
-      });
-    });
     
-    $(function(){
-      ScrollReveal().reveal('.right', {
-        duration: 5000,
-        origin: 'right',
-        distance: '50px',
-        reset: true
-      });
+    // レスポンシブスクロールバー出現のためcssに変更
+    // $(function(){
+    //   ScrollReveal().reveal('.left', {
+    //     duration: 5000,
+    //     origin: 'left',
+    //     distance: '50px',
+    //     reset: true
+    //   });
+    // });
+    
+    // $(function(){
+    //   ScrollReveal().reveal('.right', {
+    //     duration: 5000,
+    //     origin: 'right',
+    //     distance: '50px',
+    //     reset: true
+    //   });
+    // });
+    
+    $(window).scroll(function (){
+    	$('.fadein').each(function(){
+    		var elemPos = $(this).offset().top,
+    		scroll = $(window).scrollTop(),
+    		windowHeight = $(window).height();
+    
+    			if (scroll > elemPos - windowHeight + 150){
+    				$(this).addClass('scrollin');
+    			}
+    	});
     });
     
     $(function() {
@@ -54,6 +68,7 @@ document.addEventListener("turbolinks:load", function(){
         dots: true,
         autoplay: true,
         autoplaySpeed: 6000,
+        arrows: false
       });
     });
 
