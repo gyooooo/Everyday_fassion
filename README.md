@@ -22,9 +22,13 @@
 ・特別なお出かけをするとき  
 ・衣服を購入する際の参考にするとき  
 ・自分に似合うファッションを知りたいとき  
-・好みの服やファッションアイテムを探したいとき  
+・好みの服やファッションアイテムを探したいとき
 
 ## 設計書
+
+ ![ER図](assets/images/ER.png)
+
+
  ワイヤーフレーム管理者側</br>
  https://drive.google.com/file/d/1gTXoFaYJS60_31i3fkZYfPD_BOmGUAxq/view?usp=sharing
  
@@ -37,8 +41,8 @@
  UI Flous顧客側</br>
  https://drive.google.com/file/d/1jyOkEiXt53pCoA52w--qynQtsfw553kS/view?usp=sharing
  
- ER図</br>
- https://drive.google.com/file/d/1UxIkQEKjCvj4MVFvprLPnHZgchfjfq_m/view?usp=sharing
+ <!--ER図</br>-->
+ <!--https://drive.google.com/file/d/1UxIkQEKjCvj4MVFvprLPnHZgchfjfq_m/view?usp=sharing-->
  
  テーブル定義書</br>
  https://drive.google.com/file/d/12zoiPQSMqDEp6PpR_qo-bn-nEXSjv10q/view?usp=sharing
