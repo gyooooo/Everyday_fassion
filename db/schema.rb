@@ -95,10 +95,8 @@ ActiveRecord::Schema.define(version: 2022_09_22_081758) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "genre_id"
     t.integer "customer_id"
     t.text "introduction"
-    t.integer "tag_id"
     t.decimal "score"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
