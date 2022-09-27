@@ -64,5 +64,4 @@
 - Canva</br>https://www.canva.com/
 - Fontawsome</br>https://fontawesome.com/
 - Adobe Stock</br>https://stock.adobe.com/jp
-- favicon.ico</brhttps://ao-system.net/favicon/
-
+- favicon.ico</br>https://ao-system.net/favicon/
