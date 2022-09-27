@@ -26,6 +26,7 @@
 
 ## 設計書
 
+ ER図
  ![ER図](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/ER.png)
 
 
@@ -41,12 +42,11 @@
  UI Flous顧客側</br>
  https://drive.google.com/file/d/1jyOkEiXt53pCoA52w--qynQtsfw553kS/view?usp=sharing
  
- <!--ER図</br>-->
- <!--https://drive.google.com/file/d/1UxIkQEKjCvj4MVFvprLPnHZgchfjfq_m/view?usp=sharing-->
- 
  テーブル定義書</br>
  https://drive.google.com/file/d/12zoiPQSMqDEp6PpR_qo-bn-nEXSjv10q/view?usp=sharing
  
+## 外部API
+　Google Vision API
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -56,6 +56,13 @@
 - IDE：Cloud9
 
 ## 使用素材
-Adobe Stock</br>
-https://stock.adobe.com/jp
+<!--- ロゴ：Canva(https://www.canva.com/)-->
+<!--- アイコン：Fontawsome(https://fontawesome.com/)-->
+<!--- トップ画像：Adobe Stock(https://stock.adobe.com/jp)-->
+<!--- favicon.ico作成：(https://ao-system.net/favicon/)-->
+
+- Canva</br>https://www.canva.com/
+- Fontawsome</br>https://fontawesome.com/
+- Adobe Stock</br>https://stock.adobe.com/jp
+- favicon.ico</brhttps://ao-system.net/favicon/
 
