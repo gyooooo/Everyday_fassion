@@ -26,7 +26,7 @@
 
 ## 設計書
 
- ![ER図](assets/images/ER.png)
+ ![ER図](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/ER.png)
 
 
  ワイヤーフレーム管理者側</br>
