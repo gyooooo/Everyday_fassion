@@ -48,7 +48,7 @@
  
 ## 動作デモ
 - 新規投稿機能
-https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/%E3%82%A2%E3%83%89%E3%83%9F%E3%83%B3gif.gif
+  ![postgif](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/%E3%82%A2%E3%83%89%E3%83%9F%E3%83%B3gif.gif)
 
 ## 外部API
 　Google Vision API
