@@ -81,7 +81,6 @@
 - トップ画像：Adobe Stock(https://stock.adobe.com/jp)
 - favicon.ico作成：(https://ao-system.net/favicon/)
 - ロゴ：Canva(https://www.canva.com/)
-- 
 
 ## ロゴ
 <p align="center"><img src="https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/favicon.png" width="200">
