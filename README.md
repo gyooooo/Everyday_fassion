@@ -80,9 +80,11 @@
 - アイコン：Fontawsome(https://fontawesome.com/)
 - トップ画像：Adobe Stock(https://stock.adobe.com/jp)
 - favicon.ico作成：(https://ao-system.net/favicon/)
-　<img src="https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/favicon.ico" width="200">
-
 - ロゴ：Canva(https://www.canva.com/)
-　![header](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/icon6.png)
-  ![footer1](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/footer1.png)
-  ![fotter2](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/footer2.png)
+- 
+
+## ロゴ
+  <img src="https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/favicon.png" width="200">
+  <img src="https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/icon6.png" width="200">
+  <img src="https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/footer1.png" width="200">
+  <img src="https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/footer2.png" width="200">
