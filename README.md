@@ -84,7 +84,9 @@
 - 
 
 ## ロゴ
-  <img src="https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/favicon.png" width="200">
-  <img src="https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/icon6.png" width="200">
-  <img src="https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/footer1.png" width="200">
-  <img src="https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/footer2.png" width="200">
+<p><img src="https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/favicon.png" width="200">
+   <img src="https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/footer1.png" width="400">
+</p>
+<p><img src="https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/icon6.png" width="200">
+   <img src="https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/footer2.png" width="400">
+</p>
