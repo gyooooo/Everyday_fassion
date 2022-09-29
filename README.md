@@ -45,6 +45,11 @@
  テーブル定義書</br>
  https://drive.google.com/file/d/12zoiPQSMqDEp6PpR_qo-bn-nEXSjv10q/view?usp=sharing
  
+ 
+## 動作デモ
+- 新規投稿機能
+ (https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/アドミンgif.gif)
+
 ## 外部API
 　Google Vision API
 
