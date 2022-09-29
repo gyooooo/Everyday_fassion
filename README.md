@@ -47,23 +47,24 @@
  
  
 ## 動作デモ
-　### 新規投稿機能
+### 新規投稿機能
 　![postgif](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/新規投稿gif.gif)
+　</br>
+　</br>
+　</br>
 　
-　
-　
-　
-　### 検索
+### 検索
   ![searchgif](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/検索gif.gif)
+  </br>
+　</br>
+　</br>
   
-  
-  
-  
-　### 管理者機能
+### 管理者機能
+　悪質なユーザーや、投稿・コメントの管理ができます。
   ![admingif](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/アドミンgif.gif)
-
-
-
+  </br>
+　</br>
+　</br>
 
 ## 外部API
 　Google Vision API
@@ -76,12 +77,11 @@
 - IDE：Cloud9
 
 ## 使用素材
-<!--- ロゴ：Canva(https://www.canva.com/)-->
-<!--- アイコン：Fontawsome(https://fontawesome.com/)-->
-<!--- トップ画像：Adobe Stock(https://stock.adobe.com/jp)-->
-<!--- favicon.ico作成：(https://ao-system.net/favicon/)-->
-
-- Canva</br>https://www.canva.com/
-- Fontawsome</br>https://fontawesome.com/
-- Adobe Stock</br>https://stock.adobe.com/jp
-- favicon.ico</br>https://ao-system.net/favicon/
+- アイコン：Fontawsome(https://fontawesome.com/)
+- トップ画像：Adobe Stock(https://stock.adobe.com/jp)
+- favicon.ico作成：(https://ao-system.net/favicon/)
+　![favicon](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/favicon.ico)
+- ロゴ：Canva(https://www.canva.com/)
+　![header](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/icon6.png)
+  ![footer1](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/footer1.png)
+  ![fotter2](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/footer2.png)
