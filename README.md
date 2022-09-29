@@ -47,7 +47,11 @@
  
  
 ## 動作デモ
-- 新規投稿機能
+　新規投稿機能
+　
+　検索機能
+
+　管理者機能
   ![postgif](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/アドミンgif.gif)
 
 ## 外部API
