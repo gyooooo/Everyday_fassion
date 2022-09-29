@@ -47,14 +47,23 @@
  
  
 ## 動作デモ
-　新規投稿機能
+　### 新規投稿機能
 　![postgif](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/新規投稿gif.gif)
 　
-　検索
+　
+　
+　
+　### 検索
   ![searchgif](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/検索gif.gif)
   
-　管理者機能
+  
+  
+  
+　### 管理者機能
   ![admingif](https://github.com/gyooooo/Everyday_fassion/blob/main/app/assets/images/アドミンgif.gif)
+
+
+
 
 ## 外部API
 　Google Vision API
